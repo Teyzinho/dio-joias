@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Carrinho from './Carrinho';
 import HamburgerButton from './HamburgerButton';
 import SearchButton from './SearchButton';
+import NavbarLinks from './NavbarLinks';
 
 const Navbar = () => {
   return (
@@ -72,14 +73,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="m-auto w-full max-w-[1240px] justify-center items-center gap-12 h-[90px] hidden lg:flex">
-        <Link href="/">Home</Link>
-        <Link href="/">Sobre nós</Link>
-        <Link href="/">Seja um Representante</Link>
-        <Link href="/">Produtos</Link>
-        <Link href="/">Novidades</Link>
-        <Link href="/">Contato</Link>
-      </div>
+      <NavbarLinks />
+
     </header>
   );
 };

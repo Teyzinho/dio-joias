@@ -6,15 +6,15 @@ const SearchButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const handleClick = (value : boolean) => {
+    setIsOpen(value);
 
     searchRef.current?.focus();
   };
 
   return (
     <div className="relative">
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={() => handleClick(true)}>
         <Image
           src="/search.svg"
           width={20}
@@ -25,15 +25,15 @@ const SearchButton = () => {
       </button>
 
       <form
-        className={`absolute -right-1 -top-1/2 h-11 items-center bg-white ${
-          isOpen ? 'flex' : 'hidden'
+        className={`absolute -right-1 hidden -top-1/2 h-11 items-center bg-white ${
+          isOpen && 'flex'
         }`}
       >
         <input type="text" ref={searchRef} className="h-full w-60" />
         <button
           type="button"
           className="text-black w-11 flex justify-center"
-          onClick={handleClick}
+          onClick={() => handleClick(false)}
         >
           <Image
             src="/search.svg"
