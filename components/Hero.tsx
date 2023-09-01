@@ -9,7 +9,6 @@ type Props = {
 };
 
 const Hero = ({ banner }: Props) => {
-  console.log('banner', banner);
 
   return (
     <section className="relative h-[70vh] lg:h-screen w-full">
