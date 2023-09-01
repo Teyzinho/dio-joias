@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Carrinho from './Carrinho';
 import HamburgerButton from './HamburgerButton';
+import SearchButton from './SearchButton';
 
 const Navbar = () => {
   return (
@@ -50,9 +51,9 @@ const Navbar = () => {
           />
         </div>
 
-        <div className='hidden sm:block'>
+        <Link href="/" className='hidden sm:block'>
           <Image src="/logo.png" width={90} height={80} alt="logo" className="object-contain" />
-        </div>
+        </Link>
 
         <div className="flex justify-end gap-4">
           <div className='hidden sm:flex gap-4'>
@@ -60,7 +61,7 @@ const Navbar = () => {
               <Image src="/user.svg" width={20} height={20} alt="logo" className="object-contain" />
             </Link>
 
-            <Image src="/search.svg" width={20} height={20} alt="logo" className="object-contain" />
+            <SearchButton />
 
             <Link href="#">
               <Carrinho />
