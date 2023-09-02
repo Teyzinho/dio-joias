@@ -1,10 +1,35 @@
+"use client"
+
 import Image from 'next/image';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 import Input from '../ui/Input';
 import TitleUnderline from '../ui/TitleUnderline';
-import { CategoriesConstants } from '@/constants';
 import LinkUnderline from '../ui/LinkUnderline';
 
+import { CategoriesInterface } from '@/types';
+
 const Categories = () => {
+
+  const [categories, setCategories] = useState<null | CategoriesInterface[]>(null)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(
+          'https://job.risestudio.com.br/categories',
+        );
+        setCategories(response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchPosts();
+  }, []);
+
+
+
   return (
     <div className="w-22% pr-[60px] flex flex-col gap-10 border-r border-gray-200 ">
       {/* Pesquisa */}
@@ -21,29 +46,14 @@ const Categories = () => {
         </form>
       </div>
 
-      {/* Seleção Especial */}
-      <TitleUnderline>Seleção Especial</TitleUnderline>
-      <div className='flex flex-col gap-2'>
-        {CategoriesConstants.especialSelection.map((item) => (
-          <LinkUnderline key={item}> {item} </LinkUnderline>
-        ))}
-      </div>
-
       {/* Categorias */}
       <TitleUnderline>Categorias</TitleUnderline>
       <div className='flex flex-col gap-2'>
-        {CategoriesConstants.category.map((item) => (
-          <LinkUnderline key={item}> {item} </LinkUnderline>
+        {categories?.map((item) => (
+          <LinkUnderline key={item.id}> {item.name} </LinkUnderline>
         ))}
       </div>
 
-      {/* Masculinos */}
-      <TitleUnderline>Masculinos</TitleUnderline>
-      <div className='flex flex-col gap-2'>
-        {CategoriesConstants.male.map((item) => (
-          <LinkUnderline key={item}> {item} </LinkUnderline>
-        ))}
-      </div>
     </div>
   );
 };

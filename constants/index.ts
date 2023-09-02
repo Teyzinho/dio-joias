@@ -43,20 +43,3 @@ export const navbarConstants: NavbarConstantsInterface[] = [
     href: '/',
   },
 ];
-
-export const CategoriesConstants: CategoriesConstantsInterface = {
-  especialSelection: ['Fabricações', 'Novidades', 'Promoções', 'Religiosos'],
-  category: [
-    'Alianças',
-    'Anéis',
-    'Brincos',
-    'Colares',
-    'Correntes',
-    'Moda',
-    'parseIsolatedEntityName',
-    'Pingentes',
-    'Pulseiras',
-    'Tornozeleira',
-  ],
-  male: ['Correntes', 'Pingentes', 'Pulseiras'],
-};

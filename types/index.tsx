@@ -25,31 +25,12 @@ export interface Item {
   images?: Image[];
 }
 
-interface Metadata  {
+interface Metadata {
   seo_url: string | null;
   title: string;
   description: string;
   keywords: string;
   canonical_url: string | null;
-};
-export interface Recomended {
-  id: string;
-  attributes: Record<string, unknown>; // Você pode especificar um tipo mais específico aqui se necessário
-  amount: number;
-  title: string;
-  slug: string;
-  orderable: boolean;
-  value: number;
-  spot_value: number;
-  condition: string;
-  thumb: Thumb;
-  images: Image[];
-  item: Item;
-  metadata: Metadata;
-  variations: any[]; // Você pode especificar um tipo mais específico aqui se necessário
-  brand: string;
-  desc: string;
-  short_desc: string;
 }
 export interface ProductCardInterface {
   id: string;
@@ -66,23 +47,34 @@ export interface ProductCardInterface {
   short_desc: string;
 }
 
-export interface FullProductInterface {
-  id: string;
+export interface Recomended extends ProductCardInterface {
+  attributes: Record<string, unknown>; // Você pode especificar um tipo mais específico aqui se necessário
+  amount: number;
+  orderable: boolean;
+  images: Image[];
+  metadata: Metadata;
+  desc: string;
+}
+
+export interface FullProductInterface extends ProductCardInterface {
   attributes: {};
   amount: number;
-  title: string;
-  slug: string;
-  orderable: boolean;
-  value: number;
-  spot_value: number;
-  condition: string;
-  thumb: Thumb;
   images: Image[];
-  item: Item;
   metadata: Metadata;
-  variations: [];
-  brand: string;
   desc: string;
-  short_desc: string;
-  recomended: Recomended;
+  recomended?: Recomended;
+  card?: null;
+  categories?: [];
+}
+
+export interface PaginationInterface {
+  total: number;
+  page: number;
+  perPage: number;
+  lastPage: number;
+}
+
+export interface CategoriesInterface {
+  id: string,
+  name: string
 }
