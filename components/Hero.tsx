@@ -27,7 +27,7 @@ const Hero = ({ banner }: Props) => {
         className="
         w-full
         h-full
-        bg-gradient-to-bl from-[#4671441A] via-transparent to-[#467144] opacity-50 mix-blend-color transition-all duration-300
+        bg-gradient-to-l from-[#4671441A] via-transparent to-[#467144] opacity-50 mix-blend-color transition-all duration-300
         absolute
         -z-10
         "
@@ -41,12 +41,12 @@ const Hero = ({ banner }: Props) => {
               width={288}
               height={288}
               alt="logo"
-              className="z-10 sepia-[10%] grayscale-[25%] hue-rotate-[5deg] contrast-50 brightness-125"
+              className="z-10 drop-shadow-md hidden sm:block"
             />
           </div>
 
           <div className="lg:w-[430px] flex flex-col items-center lg:items-start gap-5">
-            <h1 className="text-neutral-50 text-2xl font-light tracking-widest lg:tracking-normal text-center lg:text-start">
+            <h1 className="text-neutral-50 text-3xl font-light tracking-widest lg:tracking-normal text-center lg:text-start">
               joias em prata personalizadas para seu gosto
             </h1>
             <Button>FAÇA AGORA SEU PEDIDO! </Button>

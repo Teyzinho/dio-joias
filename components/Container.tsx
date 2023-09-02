@@ -7,9 +7,11 @@ type Props = {
 
 const Container = ({children,className}: Props) => {
   return (
-    <section className={`w-[1180px] min-h-[50vh] mx-auto ${className}`}>
+    <div className='px-4 sm:px-2'>
+    <section className={`w-full xl:w-[1180px] min-h-[50vh] mx-auto ${className} relative`}>
         {children}
     </section>
+    </div>
   )
 }
 

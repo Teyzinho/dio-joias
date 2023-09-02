@@ -1,15 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Montserrat } from 'next/font/google';
+
 import Carrinho from './Carrinho';
 import HamburgerButton from './HamburgerButton';
 import SearchButton from './SearchButton';
 import NavbarLinks from './NavbarLinks';
 
+const montserrat = Montserrat({ subsets: ['latin'] })
+
 const Navbar = () => {
   return (
-    <header className="absolute flex flex-col justify-center w-full text-white z-20 px-7">
+    <header className={`absolute flex flex-col justify-center w-full text-white z-20 px-7 ${montserrat.className}`}>
       <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-[1fr,auto,1fr] justify-between items-center gap-5 py-3">
-
         {/* DeskTop */}
         <div className="hidden gap-4 sm:flex">
           <Link href="#">
@@ -17,7 +21,7 @@ const Navbar = () => {
               src="/facebook.svg"
               width={24}
               height={24}
-              alt="logo"
+              alt="facebook"
               className="object-contain"
             />
           </Link>
@@ -26,7 +30,7 @@ const Navbar = () => {
               src="/instagram.svg"
               width={24}
               height={24}
-              alt="logo"
+              alt="instagram"
               className="object-contain"
             />
           </Link>
@@ -35,31 +39,43 @@ const Navbar = () => {
               src="/pinterest.svg"
               width={24}
               height={24}
-              alt="logo"
+              alt="pinterest"
               className="object-contain"
             />
           </Link>
         </div>
 
         {/* Mobile Logo */}
-        <div className='block sm:hidden'>
+        <div className="block sm:hidden">
           <Image
             src="/mobileLogo.png"
             width={160}
             height={55}
-            alt='mobile Logo'
-            className='object-cover'
+            alt="mobile Logo"
+            className="object-cover"
           />
         </div>
 
-        <Link href="/" className='hidden sm:block'>
-          <Image src="/logo.png" width={90} height={80} alt="logo" className="object-contain" />
+        <Link href="/" className="hidden sm:block">
+          <Image
+            src="/logo.png"
+            width={90}
+            height={80}
+            alt="logo"
+            className="object-contain"
+          />
         </Link>
 
         <div className="flex justify-end gap-4">
-          <div className='hidden sm:flex gap-4'>
+          <div className="hidden sm:flex gap-4">
             <Link href="#">
-              <Image src="/user.svg" width={20} height={20} alt="logo" className="object-contain" />
+              <Image
+                src="/user.svg"
+                width={20}
+                height={20}
+                alt="user"
+                className="object-contain"
+              />
             </Link>
 
             <SearchButton />
@@ -74,7 +90,6 @@ const Navbar = () => {
       </div>
 
       <NavbarLinks />
-
     </header>
   );
 };

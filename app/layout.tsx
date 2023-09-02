@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Josefin_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const josefin = Josefin_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Dio joias em Prata',
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={josefin.className}>{children}</body>
     </html>
   )
 }
