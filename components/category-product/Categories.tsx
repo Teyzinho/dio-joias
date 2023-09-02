@@ -31,12 +31,12 @@ const Categories = () => {
 
 
   return (
-    <div className="w-22% pr-[60px] flex flex-col gap-10 border-r border-gray-200 ">
+    <div className="w-full lg:w-[22%] lg:pr-[60px] flex flex-col gap-10 lg:border-r border-gray-200 ">
       {/* Pesquisa */}
       <div>
         <TitleUnderline>Pesquisar</TitleUnderline>
-        <form className="flex gap-2 border-b border-gray-200 pt-2 pb-5">
-          <Input type="text" />
+        <form className="flex gap-2 border-b border-gray-200 pt-2 pb-5 w-full">
+          <Input type="text" className='w-full'/>
           <button
             className="w-10 h-10 flex items-center justify-center border-primary border hover:bg-primary"
             type="submit"

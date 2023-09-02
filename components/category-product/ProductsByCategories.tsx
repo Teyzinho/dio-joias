@@ -40,10 +40,10 @@ const ProductsByCategories = () => {
   const range = `${startProduct}-${endProduct}`;
 
   return (
-    <section className="w-[78%] pl-[60px] ">
+    <section className="w-full lg:w-[78%] lg:pl-[60px] ">
       <h1 className="text-3xl text-primary">Produtos</h1>
 
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex flex-wrap justify-between items-center">
         {pagination && (
           <p className=" font-normal">
             Exibindo {range} de {pagination?.total} resultados
@@ -59,7 +59,7 @@ const ProductsByCategories = () => {
       </div>
 
       {/* Produtos */}
-      <div className="grid grid-cols-3 gap-5 pt-10">
+      <div className="grid  sm:grid-cols-3 gap-5 pt-10">
         {products?.map((product) => (
           <SecondaryProductCard key={product.id} product={product} />
         ))}
