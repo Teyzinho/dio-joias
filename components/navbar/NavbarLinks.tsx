@@ -8,7 +8,7 @@ const NavbarLinks = () => {
       <Link href="/">Seja um Representante</Link>
 
       <div>
-        <Link href="/">Produtos <span className=" after:content-['\f140'] font"></span> </Link>
+        <Link href="/produtos">Produtos <span className=" after:content-['\f140'] font"></span> </Link>
       </div>
 
       <Link href="/">Novidades</Link>

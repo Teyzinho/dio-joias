@@ -27,7 +27,7 @@ const Fabrications = () => {
   }, [])
 
   return (
-    <Container>
+    <Container className='pb-16'>
       <div className="py-[120px]">
         <div className="p-6 border-l-primary border border-transparent ">
           <p className="text-zinc-400 text-sm sm:text-base font-bold leading-loose">

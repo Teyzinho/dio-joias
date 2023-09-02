@@ -3,12 +3,6 @@ interface NavbarConstantsInterface {
   href: string;
 }
 
-interface CategoriesConstantsInterface {
-  especialSelection: string[];
-  category: string[];
-  male: string[];
-}
-
 export const navbarConstants: NavbarConstantsInterface[] = [
   {
     title: 'Home',
@@ -42,4 +36,15 @@ export const navbarConstants: NavbarConstantsInterface[] = [
     title: 'Minha conta',
     href: '/',
   },
+];
+
+export const footerConstants = [
+  'Home',
+  'Sobre nós',
+  'Revenda',
+  'Produtos',
+  'Contato',
+  'Política de troca',
+  'Política de Frete',
+  'Política de privacidade',
 ];
