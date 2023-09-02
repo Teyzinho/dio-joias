@@ -1,13 +1,13 @@
-import { PostCardInterface } from '@/types';
+import { ProductCardInterface } from '@/types';
 import Image from 'next/image';
-import Button from './Button';
+import PrimaryButton from '../ui/PrimaryButton';
 import Link from 'next/link';
 
 type Props = {
-  post: PostCardInterface;
+  post: ProductCardInterface;
 };
 
-const PostCard = ({ post }: Props) => {
+const ProductCard = ({ post }: Props) => {
   return (
     <div className="w-full relative group shadow-md hover:shadow-2xl bg-white transition-all">
       <div className="w-full min-h-[300px] relative overflow-hidden">
@@ -28,18 +28,18 @@ const PostCard = ({ post }: Props) => {
               {post.title}
             </h4>
           </Link>
-          <p className="text-zinc-500 text-base font-semibold leading-3 tracking-wide">
+          <p className="text-zinc-500 text-base font-semibold leading-3 tracking-wsluge">
             R$ {post.spot_value}
           </p>
         </div>
-        <Link href={`/produto/${post.slug}`} className='w-fit'>
-          <Button className="bg-transparent text-primary border border-primary hover:bg-primary hover:text-white">
+        <Link href={`/produto/${post.id}`} className='w-fit'>
+          <PrimaryButton className="bg-transparent text-primary border border-primary hover:bg-primary hover:text-white">
             Comprar{' '}
-          </Button>
+          </PrimaryButton>
         </Link>
       </div>
     </div>
   );
 };
 
-export default PostCard;
+export default ProductCard;

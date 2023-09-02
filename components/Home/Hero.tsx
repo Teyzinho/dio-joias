@@ -2,7 +2,7 @@
 
 import { BannerInterface } from '@/types';
 import Image from 'next/image';
-import Button from './Button';
+import PrimaryButton from '../ui/PrimaryButton';
 
 type Props = {
   banner: BannerInterface;
@@ -49,7 +49,7 @@ const Hero = ({ banner }: Props) => {
             <h1 className="text-neutral-50 text-3xl font-light tracking-widest lg:tracking-normal text-center lg:text-start">
               joias em prata personalizadas para seu gosto
             </h1>
-            <Button>FAÇA AGORA SEU PEDIDO! </Button>
+            <PrimaryButton>FAÇA AGORA SEU PEDIDO! </PrimaryButton>
           </div>
         </div>
       </div>

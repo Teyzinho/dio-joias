@@ -3,17 +3,17 @@ import Link from 'next/link';
 
 import { Montserrat } from 'next/font/google';
 
-import Carrinho from './Carrinho';
+import CartIcon from '../cart/CartIcon';
 import HamburgerButton from './HamburgerButton';
-import SearchButton from './SearchButton';
+import SearchButton from '../ui/SearchButton';
 import NavbarLinks from './NavbarLinks';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 const Navbar = () => {
   return (
-    <header className={`absolute flex flex-col justify-center w-full text-white z-20 px-7 ${montserrat.className}`}>
-      <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-[1fr,auto,1fr] justify-between items-center gap-5 py-3">
+    <header className={`flex flex-col justify-center w-full text-white z-20 px-7 bg-primary ${montserrat.className}`}>
+      <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-2 justify-between items-center gap-5 py-3">
         {/* DeskTop */}
         <div className="hidden gap-4 sm:flex">
           <Link href="#">
@@ -56,16 +56,6 @@ const Navbar = () => {
           />
         </div>
 
-        <Link href="/" className="hidden sm:block">
-          <Image
-            src="/logo.png"
-            width={90}
-            height={80}
-            alt="logo"
-            className="object-contain"
-          />
-        </Link>
-
         <div className="flex justify-end gap-4">
           <div className="hidden sm:flex gap-4">
             <Link href="#">
@@ -81,7 +71,7 @@ const Navbar = () => {
             <SearchButton />
 
             <Link href="#">
-              <Carrinho />
+              <CartIcon />
             </Link>
           </div>
 

@@ -1,6 +1,5 @@
-import Image from 'next/image';
 
-const Carrinho = () => {
+const CartIcon = () => {
   return (
     <div className='group relative'>
       <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition-all">
@@ -17,4 +16,4 @@ const Carrinho = () => {
   );
 };
 
-export default Carrinho;
+export default CartIcon;

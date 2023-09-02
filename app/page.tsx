@@ -1,12 +1,12 @@
 "use client"
 
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HomeNavbar from "@/components/navbar/HomeNavbar";
+import Hero from "@/components/Home/Hero";
 import { BannerInterface } from "@/types";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Fabrications from "@/components/Fabrications";
+import Fabrications from "@/components/Home/Fabrications";
 
 export default function Home() {
   const [banner, setBanner] = useState<null | BannerInterface>(null);
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <main>
 
-      <Navbar />
+      <HomeNavbar />
 
       {
         banner && <Hero banner={banner} />
