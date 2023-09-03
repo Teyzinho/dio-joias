@@ -1,7 +1,9 @@
-import Footer from '@/components/footer/Footer';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Josefin_Sans } from 'next/font/google';
+
+import CardProvider from '@/contexts/CartProvider';
+import Footer from '@/components/footer/Footer';
 
 const josefin = Josefin_Sans({ subsets: ['latin'] });
 
@@ -18,8 +20,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={josefin.className}>
-        {children}
-        <Footer />
+
+        {/* <CardProvider> */}
+          {children}
+          <Footer />
+        {/* </CardProvider> */}
       </body>
     </html>
   );

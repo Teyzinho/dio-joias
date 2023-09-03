@@ -1,15 +1,15 @@
-import { ProductCardInterface } from '@/types';
+import { FullProductInterface } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import SecondaryButton from '../ui/SecondaryButton';
+import BuyButton from '../ui/BuyButton';
 
 type Props = {
-  product: ProductCardInterface;
+  product: FullProductInterface;
 };
 
 const SecondaryProductCard = ({ product }: Props) => {
   return (
-    <div className="w-full relative group shadow-md hover:shadow-2xl bg-white transition-all">
+    <div className="w-full max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition-all">
       <div className="w-full min-h-[300px] relative overflow-hidden">
         <Link href={`/produto/${product.slug}`}>
           <Image
@@ -33,9 +33,7 @@ const SecondaryProductCard = ({ product }: Props) => {
         <p className="text-neutral-500 text-xl font-semibold">
           R${product.spot_value}
         </p>
-        <Link href={`/produto/${product.id}`} className="w-fit">
-          <SecondaryButton>Comprar</SecondaryButton>
-        </Link>
+          <BuyButton product={product}>Comprar</BuyButton>
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const FullProduct = ({ slug }: Props) => {
       <div className="flex-1 relative h-[1000px]">
         <Image
           fill
-          src={post?.thumb.file_url || '/img.img'}
+          src={post?.thumb.file_url}
           alt="img"
           className="object-cover"
         />
