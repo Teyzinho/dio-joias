@@ -12,7 +12,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 
 const Navbar = () => {
   return (
-    <header className={`flex flex-col justify-center w-full text-white z-20 px-7 bg-primary ${montserrat.className}`}>
+    <header className={`flex flex-col justify-center w-full text-white z-20 px-7 bg-primary ${montserrat.className} z-50`}>
       <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-2 justify-between items-center gap-5 py-3">
         {/* DeskTop */}
         <div className="hidden gap-4 sm:flex">

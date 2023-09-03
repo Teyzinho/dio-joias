@@ -50,7 +50,7 @@ const CartIcon = () => {
 
             <p className="p-4 text-center font-bold border-y border-gray-200">
               {' '}
-              SubTotal : ${calculateSubtotal()}
+              SubTotal : R${calculateSubtotal()}
             </p>
 
             <div className="p-4 w-full">

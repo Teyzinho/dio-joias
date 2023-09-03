@@ -1,6 +1,7 @@
 import { FullProductInterface } from '@/types';
 import Image from 'next/image';
 import LinkUnderline from '../ui/LinkUnderline';
+import { removeProductToCart } from '@/contexts/CartProvider/actions';
 
 type Props = {
   product: FullProductInterface;
@@ -8,7 +9,10 @@ type Props = {
 };
 
 const CartIconProduct = ({ product, index }: Props) => {
-  console.log('cardProduct', product);
+
+  const handleDelete = () => {
+    removeProductToCart(product.id)
+  };
 
   return (
     <div
@@ -21,7 +25,7 @@ const CartIconProduct = ({ product, index }: Props) => {
         width={30}
         height={30}
         alt="productImage"
-        className="object-cover"
+        className="object-cover h-min"
       />
 
       <div className="flex flex-col w-36">
@@ -29,7 +33,10 @@ const CartIconProduct = ({ product, index }: Props) => {
         <span className="pt-2">R$ {product.value}</span>
       </div>
 
-      <button className="w-6 h-6 flex items-center justify-center rounded-full border transition-all border-gray-300 text-gray-300 hover:border-primary">
+      <button
+        onClick={handleDelete}
+        className="w-6 h-6 flex items-center justify-center rounded-full border transition-all border-gray-300 text-gray-300 hover:border-primary"
+      >
         X
       </button>
     </div>
