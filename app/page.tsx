@@ -5,7 +5,7 @@ import Hero from '@/components/Home/Hero';
 import { BannerInterface } from '@/types';
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import Fabrications from '@/components/Home/Fabrications';
 
 export default function Home() {
@@ -28,7 +28,6 @@ export default function Home() {
       <HomeNavbar />
 
       {banner && <Hero banner={banner} />}
-
       <Fabrications />
     </main>
   );

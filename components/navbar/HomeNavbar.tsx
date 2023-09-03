@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Montserrat } from 'next/font/google';
 
-import Carrinho from '../cart/CartIcon';
+import Carrinho from '../cart/cartIcon/CartIcon';
 import HamburgerButton from './HamburgerButton';
 import SearchButton from '../ui/SearchButton';
 import NavbarLinks from './NavbarLinks';

@@ -1,6 +1,6 @@
 import { FullProductInterface } from '@/types';
 import Image from 'next/image';
-import LinkUnderline from '../ui/LinkUnderline';
+import LinkUnderline from '@/components/ui/LinkUnderline';
 import { removeProductToCart } from '@/contexts/CartProvider/actions';
 
 type Props = {
@@ -9,9 +9,8 @@ type Props = {
 };
 
 const CartIconProduct = ({ product, index }: Props) => {
-
   const handleDelete = () => {
-    removeProductToCart(product.id)
+    removeProductToCart(product.id);
   };
 
   return (

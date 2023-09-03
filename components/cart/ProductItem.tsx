@@ -17,16 +17,16 @@ const ProductItem = ({ product }: Props) => {
   return (
     <tr className="border h-24 max-h-24">
       {/* Remove Product*/}
-      <th className=" ">
+      <td className=" ">
         <button
           onClick={handleDelete}
           className="flex items-center justify-center mx-auto w-6 h-6 border rounded-full border-gray-300 text-gray-300 font-light hover:bg-white hover:border-primary hover:text-primary transition-all"
         >
           X
         </button>
-      </th>
-      {/* Thumb*/}
-      <th className="">
+      </td>
+      {/* thumb*/}
+      <td className="">
         <Link href={`/produto/${product.slug}`}>
           <Image
             src={product.thumb.file_url}
@@ -36,20 +36,20 @@ const ProductItem = ({ product }: Props) => {
             className="object-cover h-wit "
           />
         </Link>
-      </th>
+      </td>
       {/* Name  */}
-      <th className="">
+      <td className="">
         <Link
           className="text-primary transition-all text-base font-bold hover:text-lightPrimary"
           href={`/produto/${product.slug}`}
         >
           {product.title}
         </Link>
-      </th>
+      </td>
       {/* Price  */}
-      <th className="">R${product.value}</th>
+      <td className="">R${product.value}</td>
       {/* Quantity  */}
-      <th className="">
+      <td className="">
         <input
           className="w-12 h-9 font-normal text-gray-400 text-center"
           min={1}
@@ -57,9 +57,9 @@ const ProductItem = ({ product }: Props) => {
           name="number"
           value={1}
         />
-      </th>
+      </td>
       {/* Subtotal  */}
-      <th className="">{product.value}</th>
+      <td className="">{product.value}</td>
     </tr>
   );
 };

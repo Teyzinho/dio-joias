@@ -8,7 +8,7 @@ type Props = {
 
 const CartProducts = ({ products }: Props) => {
   return (
-    <table className="w-full text-left">
+    <table className="w-full border-collapse  text-left lg:table">
       <thead>
         <tr className="bg-white h-14">
           {/* Remove Product*/}

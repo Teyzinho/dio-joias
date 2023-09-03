@@ -12,11 +12,6 @@ const HamburgerButton = () => {
     setIsOpen(!isOpen);
   };
 
-  console.log('isOpen', isOpen);
-
-  {
-    isOpen ? console.log('yes') : console.log('no');
-  }
 
   return (
     <div className="lg:hidden z-50">

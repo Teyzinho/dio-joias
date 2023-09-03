@@ -1,15 +1,24 @@
-'use client';
-
-import { ReactNode, useReducer } from 'react';
-import { CartContext } from './context';
+import { ReactNode, createContext, useReducer } from 'react';
 import { reducer } from './reducer';
 import { data } from './data';
+import { DataInterface } from './data';
 
 type Props = {
   children: ReactNode;
 };
 
-const CardProvider = ({ children }: Props) => {
+type ContextType = {
+  cartState: DataInterface;
+  cartDispatch: React.Dispatch<any>;
+};
+
+export const CartContext = createContext<ContextType>({
+  cartState: data,
+  cartDispatch: () => {},
+});
+// export const CartContext = createContext(data);
+
+export const CartProvider = ({ children }: Props) => {
   const [cartState, cartDispatch] = useReducer(reducer, data);
 
   return (
@@ -18,5 +27,3 @@ const CardProvider = ({ children }: Props) => {
     </CartContext.Provider>
   );
 };
-
-export default CardProvider;

@@ -1,27 +1,29 @@
 'use client';
 
-import { FullProductInterface } from '@/types';
-import { useState, useEffect } from 'react';
-import CartIconProduct from './CartIconProduct';
-import SecondaryButton from '../ui/SecondaryButton';
+import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
+import { FullProductInterface } from '@/types';
+import CartIconProduct from './CartIconProduct';
+import SecondaryButton from '@/components/ui/SecondaryButton';
+import { CartContext } from '@/contexts/CartProvider';
+import { getProductsToCard } from '@/contexts/CartProvider/actions';
 
 const CartIcon = () => {
-  const [products, setProducts] = useState<FullProductInterface[] | undefined>(
-    undefined,
-  );
+
+  const context = useContext(CartContext);
+  const { cartState, cartDispatch } = context;
+
+  const products: FullProductInterface[] = cartState.products;
 
   useEffect(() => {
-    const cartProducts = JSON.parse(localStorage.getItem('cart') || '[]');
-    setProducts(cartProducts);
-  }, []);
+    getProductsToCard(cartDispatch);
+  }, [cartDispatch]);
 
   // Função para calcular o subtotal
   const calculateSubtotal = () => {
     if (!products || products.length === 0) {
       return 0;
     }
-
     const subtotal = products.reduce((acc, product) => acc + product.value, 0);
     return subtotal;
   };
@@ -55,9 +57,13 @@ const CartIcon = () => {
 
             <div className="p-4 w-full">
               <Link href="/carrinho">
-                <SecondaryButton className='w-full py-2.5'>Ver Carrinho</SecondaryButton>
+                <SecondaryButton className="w-full py-2.5">
+                  Ver Carrinho
+                </SecondaryButton>
               </Link>
-              <SecondaryButton className='w-full mt-2 py-2.5'>Finalizar Compra</SecondaryButton>
+              <SecondaryButton className="w-full mt-2 py-2.5">
+                Finalizar Compra
+              </SecondaryButton>
             </div>
           </div>
         ) : (

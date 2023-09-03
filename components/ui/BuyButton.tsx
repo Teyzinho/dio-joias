@@ -1,8 +1,9 @@
-"use client"
+'use client';
 
+import { CartContext } from '@/contexts/CartProvider';
 import { addProductToCart } from '@/contexts/CartProvider/actions';
 import { FullProductInterface } from '@/types';
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -11,11 +12,22 @@ type Props = {
   product: FullProductInterface;
 };
 
-const BuyButton = ({ children, type = 'button', className ,product }: Props) => {
+const BuyButton = ({
+  children,
+  type = 'button',
+  className,
+  product,
+}: Props) => {
+
+  const cartContext = useContext(CartContext);
+
+  const {cartDispatch} = cartContext;
+
+  console.log("cart Context",cartContext)
 
   const handleCLick = () => {
-    addProductToCart(product)
-  }
+    addProductToCart(product , 1, cartDispatch);
+  };
 
   return (
     <button
