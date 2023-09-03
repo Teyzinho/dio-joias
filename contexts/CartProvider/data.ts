@@ -10,7 +10,7 @@ export interface DataInterface {
   loading: boolean
 }
 
-export const data = {
+export const data:DataInterface = {
   products: [],
   loading:false,
 }

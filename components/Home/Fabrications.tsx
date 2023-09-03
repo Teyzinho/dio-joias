@@ -6,11 +6,11 @@ import axios from 'axios';
 import Container from '../ui/Container';
 import Products from '../product/Products';
 import Link from 'next/link';
-import { ProductCardInterface } from '@/types';
+import { FullProductInterface } from '@/types';
 
 const Fabrications = () => {
 
-  const [products, setProducts] = useState<null | ProductCardInterface[]>(null);
+  const [products, setProducts] = useState<null | FullProductInterface[]>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {

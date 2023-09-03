@@ -1,17 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useContext } from 'react';
 
 import { removeProductToCart } from '@/contexts/CartProvider/actions';
 
 import { FullProductInterface } from '@/types';
+import { CartContext } from '@/contexts/CartProvider';
 
 type Props = {
   product: FullProductInterface;
 };
 
 const ProductItem = ({ product }: Props) => {
+  const { cartDispatch } = useContext(CartContext);
+
   const handleDelete = () => {
-    removeProductToCart(product.id);
+    removeProductToCart(product.id, cartDispatch);
   };
 
   return (

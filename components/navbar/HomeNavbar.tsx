@@ -68,7 +68,7 @@ const HomeNavbar = () => {
 
         <div className="flex justify-end gap-4">
           <div className="hidden sm:flex gap-4">
-            <Link href="#">
+            <Link href="/">
               <Image
                 src="/user.svg"
                 width={20}
@@ -80,7 +80,7 @@ const HomeNavbar = () => {
 
             <SearchButton />
 
-            <Link href="#">
+            <Link href="/carrinho">
               <Carrinho />
             </Link>
           </div>

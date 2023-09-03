@@ -70,7 +70,7 @@ const Navbar = () => {
 
             <SearchButton />
 
-            <Link href="#">
+            <Link href="/carrinho">
               <CartIcon />
             </Link>
           </div>

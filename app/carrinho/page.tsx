@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 
 import Navbar from '@/components/navbar/Navbar';
 import Container from '@/components/ui/Container';
@@ -9,16 +9,17 @@ import CartProducts from '@/components/cart/CartProducts';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import Input from '@/components/ui/Input';
 import TotalPrice from '@/components/cart/TotalPrice';
+import { CartContext } from '@/contexts/CartProvider';
+import { getProductsToCard } from '@/contexts/CartProvider/actions';
 
 const Carrinho = () => {
-  const [products, setProducts] = useState<FullProductInterface[] | undefined>(
-    undefined,
-  );
+  const { cartState, cartDispatch } = useContext(CartContext);
+
+  const products: FullProductInterface[] = cartState.products;
 
   useEffect(() => {
-    const cartProducts = JSON.parse(localStorage.getItem('cart') || '[]');
-    setProducts(cartProducts);
-  }, []);
+    getProductsToCard(cartDispatch);
+  }, [cartDispatch]);
 
   return (
     <main>
@@ -32,17 +33,13 @@ const Carrinho = () => {
         {/* Cupom e atualizarBtn */}
         <div className="flex w-full justify-between mt-2">
           <div className="flex gap-2">
-            <Input type='text' placeHolder="Código do cupom" />
+            <Input type="text" placeHolder="Código do cupom" />
             <SecondaryButton>Aplicar cupom</SecondaryButton>
           </div>
           <SecondaryButton disabled={true}>Atualizar Carrinho</SecondaryButton>
         </div>
 
-        {products && <TotalPrice products={products}/> }
-
-
-
-
+        {products && <TotalPrice products={products} />}
       </Container>
     </main>
   );

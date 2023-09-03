@@ -9,7 +9,6 @@ import { CartContext } from '@/contexts/CartProvider';
 import { getProductsToCard } from '@/contexts/CartProvider/actions';
 
 const CartIcon = () => {
-
   const context = useContext(CartContext);
   const { cartState, cartDispatch } = context;
 
@@ -32,7 +31,7 @@ const CartIcon = () => {
     <div className="group relative z-50">
       {/* Numero de */}
       <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition-all">
-        <div className="w-2.5 h-2.5 absolute rounded-tl-full rounded-tr-full border-l-2 border-r-2 border-t-2 border-neutral-50 -top-2" />
+        <span className="w-2.5 h-2.5 absolute rounded-tl-full rounded-tr-full border-l-2 border-r-2 border-t-2 border-neutral-50 -top-2" />
         <span className="text-xs font-semibold group-hover:text-black transition-all">
           {products?.length || 0}
         </span>
@@ -47,6 +46,7 @@ const CartIcon = () => {
                 key={`productCard${product.id}`}
                 product={product}
                 index={index}
+                cartDispatch={cartDispatch}
               />
             ))}
 
@@ -67,7 +67,7 @@ const CartIcon = () => {
             </div>
           </div>
         ) : (
-          <p>Nenhum Produto no Carrinho</p>
+          <p className='p-4'>Nenhum Produto no Carrinho.</p>
         )}
       </div>
     </div>

@@ -6,11 +6,12 @@ import { removeProductToCart } from '@/contexts/CartProvider/actions';
 type Props = {
   product: FullProductInterface;
   index: number;
+  cartDispatch: React.Dispatch<any>
 };
 
-const CartIconProduct = ({ product, index }: Props) => {
+const CartIconProduct = ({ product, index , cartDispatch }: Props) => {
   const handleDelete = () => {
-    removeProductToCart(product.id);
+    removeProductToCart(product.id , cartDispatch);
   };
 
   return (

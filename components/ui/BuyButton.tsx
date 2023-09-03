@@ -6,14 +6,14 @@ import { FullProductInterface } from '@/types';
 import { ReactNode, useContext } from 'react';
 
 type Props = {
-  children: ReactNode;
+  text: string;
   type?: 'button' | 'submit';
   className?: string;
   product: FullProductInterface;
 };
 
 const BuyButton = ({
-  children,
+  text,
   type = 'button',
   className,
   product,
@@ -37,7 +37,7 @@ const BuyButton = ({
         className ? className : 'text-white bg-primary'
       }`}
     >
-      {children}
+      {text}
     </button>
   );
 };

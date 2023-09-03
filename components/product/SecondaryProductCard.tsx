@@ -33,7 +33,7 @@ const SecondaryProductCard = ({ product }: Props) => {
         <p className="text-neutral-500 text-xl font-semibold">
           R${product.spot_value}
         </p>
-          <BuyButton product={product}>Comprar</BuyButton>
+          <BuyButton product={product} text='Comprar'/>
       </div>
     </div>
   );
