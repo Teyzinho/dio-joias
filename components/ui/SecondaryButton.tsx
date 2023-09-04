@@ -22,7 +22,7 @@ const SecondaryButton = ({
         text-white px-4 py-1.5
        hover:text-black
         hover:bg-[#9cbf9b]
-        transition-all
+        transition duration-500
         disabled:brightness-150
         disabled:cursor-not-allowed
         disabled:text-black

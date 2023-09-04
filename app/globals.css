@@ -21,3 +21,7 @@
 .cart_img {
   @apply justify-center !important
 }
+
+.buy_button{
+  @apply bg-transparent text-primary border border-primary hover:bg-primary hover:text-white w-fit flex items-center gap-1 disabled:cursor-not-allowed disabled:text-gray-200 disabled:bg-lightPrimary/20 text-sm font-normal leading-relaxed tracking-wide px-8 py-4 transition duration-500
+}

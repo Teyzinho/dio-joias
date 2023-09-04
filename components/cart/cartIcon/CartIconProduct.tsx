@@ -35,7 +35,7 @@ const CartIconProduct = ({ product, index , cartDispatch }: Props) => {
 
       <button
         onClick={handleDelete}
-        className="w-6 h-6 flex items-center justify-center rounded-full border transition-all border-gray-300 text-gray-300 hover:border-primary"
+        className="w-6 h-6 flex items-center justify-center rounded-full border transition duration-500 border-gray-300 text-gray-300 hover:border-primary"
       >
         X
       </button>

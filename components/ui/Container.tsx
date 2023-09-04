@@ -7,7 +7,7 @@ type Props = {
 
 const Container = ({ children, className }: Props) => {
   return (
-    <div className="px-4 sm:px-2 bg-bg">
+    <div className="px-4 sm:px-2 bg-bg shadow-lg">
       <section
         className={`w-full xl:w-[1180px] min-h-[30vh] mx-auto ${className} relative`}
       >

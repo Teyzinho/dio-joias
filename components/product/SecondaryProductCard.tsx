@@ -2,6 +2,7 @@ import { FullProductInterface, Recomended } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import BuyButton from '../ui/BuyButton';
+import GreenBuyButton from '../ui/GreenBuyButton';
 
 type Props = {
   product: FullProductInterface | Recomended;
@@ -9,7 +10,7 @@ type Props = {
 
 const SecondaryProductCard = ({ product }: Props) => {
   return (
-    <div className="w-full max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition-all">
+    <div className="w-full max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition duration-500">
       <Link href={`/produto/${product.slug}`}>
         <div className="w-full min-h-[300px] relative overflow-hidden">
           <Image
@@ -30,8 +31,7 @@ const SecondaryProductCard = ({ product }: Props) => {
         <p className="text-neutral-500 text-xl font-semibold">
           R${product.spot_value}
         </p>
-        <BuyButton
-          className="text-white bg-primary font-bold px-2.5 py-2"
+        <GreenBuyButton
           productId={product.id}
           text="Comprar"
         />

@@ -9,23 +9,21 @@ const Hero = () => {
   const { homeData } = useContext(HomeContext);
   const { banner, isLoading } = homeData;
 
-  console.log('homedata', homeData.banner);
-
   if (isLoading || !banner) {
     return (
-      <section className="relative h-[70vh] lg:h-screen w-full">
+      <section className="relative h-[70vh] lg:h-[110vh] w-full">
         <p>Is Loading</p>
       </section>
     );
   }
 
   return (
-    <section className="relative h-[70vh] lg:h-screen w-full">
+    <section className="relative h-[70vh] lg:h-[110vh] w-full">
       <video
         autoPlay
         muted
         loop
-        className="h-[70vh] lg:h-screen w-full absolute -z-10 object-cover"
+        className="h-[70vh] lg:h-[110vh] w-full absolute -z-10 object-cover"
       >
         <source src={banner.file_url} />
       </video>
@@ -34,7 +32,7 @@ const Hero = () => {
         className="
         w-full
         h-full
-        bg-gradient-to-l from-[#4671441A] via-transparent to-[#467144] opacity-50 mix-blend-color transition-all duration-300
+        bg-gradient-to-l from-[#4671441A] via-transparent to-[#467144] opacity-50 mix-blend-color transition duration-500 duration-300
         absolute
         -z-10
         "
@@ -61,7 +59,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 h-0 w-0 border-[0px,113.5px,150px,113.5px] border-black" />
+      <div className="w-full h-5 bottom-0 absolute z-50">
+        <Image src="/bottomHero.svg" fill alt="bottom" className="object-fill" />
+      </div>
     </section>
   );
 };

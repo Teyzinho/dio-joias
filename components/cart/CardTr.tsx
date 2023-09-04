@@ -21,10 +21,10 @@ const CardTr = ({ product }: Props) => {
   return (
     <tr className="cart_tr">
       {/* Remove Product*/}
-      <td className='cart_x'>
+      <td className="cart_x">
         <button
           onClick={handleDelete}
-          className="flex items-center justify-center lg:mx-auto w-6 h-6 border rounded-full border-gray-300 text-gray-300 font-light hover:bg-white hover:border-primary hover:text-primary transition-all"
+          className="flex items-center justify-center lg:mx-auto w-6 h-6 border rounded-full border-gray-300 text-gray-300 font-light hover:bg-white hover:border-primary hover:text-primary transition duration-500"
         >
           X
         </button>
@@ -47,7 +47,7 @@ const CardTr = ({ product }: Props) => {
       <td>
         <p>Name:</p>
         <Link
-          className="text-primary transition-all text-base font-bold hover:text-lightPrimary"
+          className="text-primary  text-base font-bold hover:text-lightPrimary"
           href={`/produto/${product.slug}`}
         >
           {product.title}

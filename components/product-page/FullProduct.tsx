@@ -1,13 +1,13 @@
 'use client';
 
 import { useContext, useEffect, useState } from 'react';
-import Image from 'next/image';
 
 import SecondaryButton from '../ui/SecondaryButton';
 import Container from '../ui/Container';
-import BuyButton from '../ui/BuyButton';
 import ProductTab from './ProductTab';
 import { ProductPageContext, fetchProductPage } from '@/contexts/ProductPage';
+import ProductImage from './ProductImage';
+import GreenBuyButton from '../ui/GreenBuyButton';
 
 type Props = {
   slug: string;
@@ -32,14 +32,7 @@ const FullProduct = ({ slug }: Props) => {
     <Container className="pt-20">
       <div className="flex">
         {/* Imagem */}
-        <div className="flex-1 relative h-[1000px]">
-          <Image
-            fill
-            src={product?.thumb.file_url}
-            alt="img"
-            className="object-cover"
-          />
-        </div>
+        <ProductImage url={product?.thumb.file_url}/>
 
         {/* Protudo */}
         <div className="flex-1 px-12 flex flex-col gap-y-5">
@@ -83,7 +76,7 @@ const FullProduct = ({ slug }: Props) => {
               onChange={(e) => setQuantity(Number(e.target.value))}
             />
 
-            <BuyButton text="Comprar" productId={product.id} />
+            <GreenBuyButton text="Comprar" productId={product.id} />
           </form>
 
           {/* Frete */}
@@ -102,6 +95,7 @@ const FullProduct = ({ slug }: Props) => {
               <SecondaryButton>Ok</SecondaryButton>
             </div>
           </div>
+
         </div>
       </div>
 

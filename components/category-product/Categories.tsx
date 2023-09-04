@@ -8,6 +8,7 @@ import TitleUnderline from '../ui/TitleUnderline';
 import LinkUnderline from '../ui/LinkUnderline';
 
 import { CategoryContext } from '@/contexts/CategoryProvider';
+import { SearchSvg } from '../tsx-svg';
 
 const Categories = () => {
   const { categories: categoriesData } = useContext(CategoryContext);
@@ -21,10 +22,10 @@ const Categories = () => {
         <form className="flex gap-2 border-b border-gray-200 pt-2 pb-5 w-full">
           <Input type="text" className="w-full" />
           <button
-            className="w-10 h-10 flex items-center justify-center border-primary border hover:bg-primary"
+            className="w-12 h-10 flex items-center justify-center border-primary border hover:bg-primary text-primary hover:text-white transition duration-500"
             type="submit"
           >
-            <Image width={20} height={20} alt="search" src="search.svg" />
+            <SearchSvg width={15} hanging={15}/>
           </button>
         </form>
       </div>

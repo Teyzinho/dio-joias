@@ -20,9 +20,7 @@ export const addProductToCart = async (
   if (itemInCart) {
 
     if (itemInCart.quantity >= product.amount) {
-      return alert(
-        'não é possivel adicionar ao carrinho, Quantidade máxima atingida',
-      );
+      return { success: false, message: 'Quantidade máxima atingida' };
     }
 
     itemInCart.quantity += quantity;
@@ -33,7 +31,7 @@ export const addProductToCart = async (
   cartDispatch({ type: types.CART_ADD, payload: cartItems });
   localStorage.setItem('cart', JSON.stringify(cartItems));
 
-  return alert('produto Adicionado ao Carrinho!');
+  return {success : true}
 };
 
 export const getProductsToCard = (cartDispatch: React.Dispatch<any>) => {

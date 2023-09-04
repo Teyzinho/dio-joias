@@ -20,7 +20,7 @@ const NavbarLinks = () => {
           Produtos <span className=" after:content-['\21E9'] font"></span>
         </Link>
 
-        <div className="invisible group-hover:visible translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 flex absolute bg-white flex-col p-6 gap-4 transition-all delay-300">
+        <div className="invisible group-hover:visible translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 flex absolute bg-white flex-col p-6 gap-4 transition duration-500 delay-300">
           {categories?.map((item) => (
             <LinkUnderline className="no-underline" key={item.id}>
               {item.name}

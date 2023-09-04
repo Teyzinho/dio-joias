@@ -6,6 +6,7 @@ import Container from '../ui/Container';
 import Products from '../product/Products';
 import Link from 'next/link';
 import { HomeContext } from '@/contexts/HomeProvider';
+import Image from 'next/image';
 
 const Fabrications = () => {
   const { homeData } = useContext(HomeContext);
@@ -38,7 +39,7 @@ const Fabrications = () => {
         </div>
         <Link
           href="#"
-          className="text-zinc-500 text-sm tracking-wide hover:text-secondary transition-all"
+          className="text-zinc-500 text-sm tracking-wide hover:text-secondary transition duration-500"
         >
           VER MAIS
         </Link>

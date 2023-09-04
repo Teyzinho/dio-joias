@@ -13,7 +13,7 @@ type Props = {
   productId: string;
 };
 
-const BuyButton = ({ text, type = 'button', productId }: Props) => {
+const GreenBuyButton = ({ text, type = 'button', productId }: Props) => {
   const [status, setStatus] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +43,16 @@ const BuyButton = ({ text, type = 'button', productId }: Props) => {
         onClick={handleCLick}
         type={type}
         disabled={isLoading}
-        className="buy_button"
+        className="
+          bg-primary w-fit font-bold
+         text-white px-4 py-1.5
+         hover:text-black
+          hover:bg-[#9cbf9b]
+          transition duration-500
+          disabled:brightness-150
+          disabled:cursor-not-allowed
+          disabled:text-black
+        "
       >
         {status ? (
           <LinkUnderline className="no-underline" href="/carrinho">
@@ -58,4 +67,4 @@ const BuyButton = ({ text, type = 'button', productId }: Props) => {
   );
 };
 
-export default BuyButton;
+export default GreenBuyButton;

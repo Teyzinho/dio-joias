@@ -9,7 +9,7 @@ type Props = {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <div className="w-full relative group shadow-md hover:shadow-2xl bg-white transition-all">
+    <div className="w-full relative group shadow-md hover:shadow-2xl bg-white transition duration-500">
       <Link href={`/produto/${product.slug}`}>
         <div className="w-full min-h-[300px] relative overflow-hidden">
           <Image
@@ -17,7 +17,7 @@ const ProductCard = ({ product }: Props) => {
             src={product.thumb.file_url}
             alt={product.title}
             quality={50}
-            className="object-cover group-hover:scale-125 transition-all"
+            className="object-cover group-hover:scale-125 transition duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -37,7 +37,6 @@ const ProductCard = ({ product }: Props) => {
 
         <BuyButton
           productId={product.id}
-          className="bg-transparent text-primary border border-primary hover:bg-primary hover:text-white"
           text={'COMPRAR'}
         />
       </div>

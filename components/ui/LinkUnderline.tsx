@@ -10,7 +10,7 @@ const LinkUnderline = ({ children,className,href }: Props) => {
   return (
     <Link
       href={href ? href : `/`}
-      className={`text-primary transition-all text-base font-normal underline hover:no-underline hover:text-lightPrimary ${className}`}
+      className={`text-primary transition duration-500 text-base font-normal underline hover:no-underline hover:text-lightPrimary ${className}`}
     >
       {children}
     </Link>

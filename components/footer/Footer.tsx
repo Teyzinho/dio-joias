@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Logo e Sociais */}
         <div className="w-full flex flex-col items-center md:items-start md:w-fit md:py-0">
           <div className="relative w-full h-auto md:w-[225px] md:h-[78px]">
-            <Image src={logo} className="object-cover" alt="logo" />
+            <Image src={logo} className="object-cover w-auto h-auto" alt="logo" />
           </div>
           <Sociais />
         </div>
@@ -51,7 +51,7 @@ const Footer = () => {
           <Link
             href="/"
             key={item}
-            className="text-neutral-400 text-base font-normal transition-all hover:text-secondary"
+            className="text-neutral-400 text-base font-normal transition duration-500 hover:text-secondary"
           >
             {item}
           </Link>

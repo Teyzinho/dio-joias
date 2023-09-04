@@ -22,8 +22,6 @@ const Carrinho = () => {
 
   return (
     <main>
-      <Navbar />
-
       <Container className="pt-16 text-neutral-700">
         <h1 className="text-3xl">Carrinho</h1>
 

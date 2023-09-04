@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { FullProductInterface } from '@/types';
 import CartIconProduct from './CartIconProduct';
@@ -24,16 +24,16 @@ const CartIcon = () => {
       return 0;
     }
     const subtotal = products.reduce((acc, product) => acc + product.value, 0);
-    return (subtotal).toFixed(2);
+    return subtotal.toFixed(2);
   };
 
   return (
     <div className="group relative z-50">
       {/* Numero de */}
       <Link href="/carrinho">
-        <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition-all">
+        <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition duration-500">
           <span className="w-2.5 h-2.5 absolute rounded-tl-full rounded-tr-full border-l-2 border-r-2 border-t-2 border-neutral-50 -top-2" />
-          <span className="text-xs font-semibold group-hover:text-black transition-all">
+          <span className="text-xs font-semibold group-hover:text-black transition duration-500">
             {products?.length || 0}
           </span>
         </div>

@@ -13,7 +13,7 @@ const config: Config = {
         secondary: "#BF9877",
         lightPrimary: '#9cbf9b',
         bg: '#F2F2F2'
-      }
+      },
     },
   },
   plugins: [],
