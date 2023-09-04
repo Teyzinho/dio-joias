@@ -80,9 +80,7 @@ const HomeNavbar = () => {
 
             <SearchButton />
 
-            <Link href="/carrinho">
               <Carrinho />
-            </Link>
           </div>
 
           <HamburgerButton />

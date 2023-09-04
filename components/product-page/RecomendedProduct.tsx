@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import Container from '../ui/Container';
 import { FullProductInterface } from '@/types';
-import SecondaryProductCard from './SecondaryProductCard';
+import SecondaryProductCard from '../product/SecondaryProductCard';
 
 type Props = {
   slug: string;
@@ -22,7 +22,6 @@ const RecomendedProduct = ({ slug }: Props) => {
         );
         setProducts(response.data.data.recomended);
 
-        console.log(response.data.data.recomended);
       } catch (error) {}
     };
 

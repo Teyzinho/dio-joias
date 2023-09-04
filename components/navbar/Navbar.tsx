@@ -70,9 +70,7 @@ const Navbar = () => {
 
             <SearchButton />
 
-            <Link href="/carrinho">
               <CartIcon />
-            </Link>
           </div>
 
           <HamburgerButton />

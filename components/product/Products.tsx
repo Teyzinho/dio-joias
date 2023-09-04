@@ -1,5 +1,5 @@
 
-import { FullProductInterface, Recomended } from '@/types';
+import { FullProductInterface } from '@/types';
 import ProductCard from './ProductCard';
 
 type Props = {

@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cart_tr{
+  @apply lg:border flex flex-col lg:h-24 lg:table-row text-sm lg:text-base
+}
+
+.cart_tr td {
+  @apply w-full p-4 border-[1px] border-b-0 border-gray-200 flex justify-between items-center lg:border-none lg:px-0 lg:w-auto lg:table-cell
+}
+
+.cart_tr td p{
+  @apply lg:hidden font-bold
+}
+
+.cart_x {
+  @apply justify-end !important
+}
+
+.cart_img {
+  @apply justify-center !important
+}

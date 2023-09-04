@@ -11,7 +11,7 @@ type Props = {
   product: FullProductInterface;
 };
 
-const ProductItem = ({ product }: Props) => {
+const CardTr = ({ product }: Props) => {
   const { cartDispatch } = useContext(CartContext);
 
   const handleDelete = () => {
@@ -19,18 +19,19 @@ const ProductItem = ({ product }: Props) => {
   };
 
   return (
-    <tr className="border h-24 max-h-24">
+    <tr className="cart_tr">
       {/* Remove Product*/}
-      <td className=" ">
+      <td className='cart_x'>
         <button
           onClick={handleDelete}
-          className="flex items-center justify-center mx-auto w-6 h-6 border rounded-full border-gray-300 text-gray-300 font-light hover:bg-white hover:border-primary hover:text-primary transition-all"
+          className="flex items-center justify-center lg:mx-auto w-6 h-6 border rounded-full border-gray-300 text-gray-300 font-light hover:bg-white hover:border-primary hover:text-primary transition-all"
         >
           X
         </button>
       </td>
+
       {/* thumb*/}
-      <td className="">
+      <td className="cart_img">
         <Link href={`/produto/${product.slug}`}>
           <Image
             src={product.thumb.file_url}
@@ -41,8 +42,10 @@ const ProductItem = ({ product }: Props) => {
           />
         </Link>
       </td>
+
       {/* Name  */}
-      <td className="">
+      <td>
+        <p>Name:</p>
         <Link
           className="text-primary transition-all text-base font-bold hover:text-lightPrimary"
           href={`/produto/${product.slug}`}
@@ -50,10 +53,15 @@ const ProductItem = ({ product }: Props) => {
           {product.title}
         </Link>
       </td>
+
       {/* Price  */}
-      <td className="">R${product.value}</td>
+      <td>
+        <p>Preço:</p>R${product.value}
+      </td>
+
       {/* Quantity  */}
-      <td className="">
+      <td>
+        <p>Quantidade:</p>
         <input
           className="w-12 h-9 font-normal text-gray-400 text-center"
           min={1}
@@ -62,10 +70,14 @@ const ProductItem = ({ product }: Props) => {
           value={1}
         />
       </td>
+
       {/* Subtotal  */}
-      <td className="">{product.value}</td>
+      <td>
+        <p>Subtotal:</p>
+        {product.value}
+      </td>
     </tr>
   );
 };
 
-export default ProductItem;
+export default CardTr;

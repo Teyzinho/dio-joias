@@ -12,12 +12,12 @@ const TotalPrice = ({ products }: Props) => {
     }
 
     const subtotal = products.reduce((acc, product) => acc + product.value, 0);
-    return subtotal;
+    return subtotal.toFixed(2);
   };
 
   return (
     <>
-      <table className="w-full text-left mt-8">
+      <table className="w-full text-left mt-8 lg:text-base text-sm">
         <thead>
           <tr className="bg-white h-14 border ">
             <th className="px-4 font-normal">Total Carrinho</th>
@@ -26,17 +26,23 @@ const TotalPrice = ({ products }: Props) => {
         </thead>
 
         <tbody>
-          <tr className="border h-24 max-h-24 ">
+          <tr className="border h-16">
             <th className="font-bold px-6">Subtotal</th>
-            <th className="font-bold px-6">R${calculateSubtotal()}</th>
+            <th className="font-bold px-6 text-right lg:text-left">
+              R${calculateSubtotal()}
+            </th>
           </tr>
-          <tr className="border h-24 max-h-24 ">
+          <tr className="border h-16">
             <th className="font-bold px-6">Entrega</th>
-            <th className="font-bold px-6">Calcular entraga</th>
+            <th className="px-6 text-primary text-right lg:text-left font-light">
+              Calcular entraga
+            </th>
           </tr>
-          <tr className="border h-24 max-h-24 ">
+          <tr className="border h-16">
             <th className="font-bold px-6">Total</th>
-            <th className="font-bold px-6">R${calculateSubtotal()}</th>
+            <th className="font-bold px-6 text-right lg:text-left">
+              R${calculateSubtotal()}
+            </th>
           </tr>
         </tbody>
       </table>

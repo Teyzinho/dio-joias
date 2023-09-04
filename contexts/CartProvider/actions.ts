@@ -1,35 +1,39 @@
 import { FullProductInterface } from '@/types';
 import * as types from './types';
-import { DataInterface } from './data';
+import axios from 'axios';
 
-// type AddProductToCart = {
-//   product: FullProductInterface;
-//   quantity: number;
-//   cartDispatch: any;
-// };
-
-export const addProductToCart = (
-  product: FullProductInterface,
+export const addProductToCart = async (
+  productId: string,
   quantity = 1,
   cartDispatch: React.Dispatch<any>,
 ) => {
   const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-  const itemInCart = cartItems.find((item: any) => item.id === product.id);
+  const itemInCart = cartItems.find((item: any) => item.id === productId);
+
+  const response = await axios.get(
+    `https://job.risestudio.com.br/stocks/${productId}`,
+  );
+  const product : FullProductInterface = response.data.data
+
 
   // Se o item já estiver no carrinho, e a quantidade no carrinho for menor que a do stock
-  if (itemInCart && itemInCart?.quantity >= product.amount) {
+  if (itemInCart) {
+
+    if (itemInCart.quantity >= product.amount) {
+      return alert(
+        'não é possivel adicionar ao carrinho, Quantidade máxima atingida',
+      );
+    }
+
     itemInCart.quantity += quantity;
-  }
-  if (itemInCart?.quantity >= product.amount) {
-    return alert(
-      'não é possivel adicionar ao carrinho, Quantidade máxima atingida',
-    );
   }
 
   cartItems.push({ ...product, quantity });
 
   cartDispatch({ type: types.CART_ADD, payload: cartItems });
   localStorage.setItem('cart', JSON.stringify(cartItems));
+
+  return alert('produto Adicionado ao Carrinho!');
 };
 
 export const getProductsToCard = (cartDispatch: React.Dispatch<any>) => {

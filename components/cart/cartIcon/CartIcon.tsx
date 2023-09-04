@@ -24,26 +24,27 @@ const CartIcon = () => {
       return 0;
     }
     const subtotal = products.reduce((acc, product) => acc + product.value, 0);
-    return subtotal;
+    return (subtotal).toFixed(2);
   };
 
   return (
     <div className="group relative z-50">
       {/* Numero de */}
-      <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition-all">
-        <span className="w-2.5 h-2.5 absolute rounded-tl-full rounded-tr-full border-l-2 border-r-2 border-t-2 border-neutral-50 -top-2" />
-        <span className="text-xs font-semibold group-hover:text-black transition-all">
-          {products?.length || 0}
-        </span>
-      </div>
-
+      <Link href="/carrinho">
+        <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition-all">
+          <span className="w-2.5 h-2.5 absolute rounded-tl-full rounded-tr-full border-l-2 border-r-2 border-t-2 border-neutral-50 -top-2" />
+          <span className="text-xs font-semibold group-hover:text-black transition-all">
+            {products?.length || 0}
+          </span>
+        </div>
+      </Link>
       {/* Hover */}
       <div className="hidden group-hover:flex absolute -right-1 bg-white text-black text-xs w-72 border-gray-300 border-2">
         {products && products.length > 0 ? (
           <div className="w-full p-4 flex flex-col gap-y-2">
             {products.map((product, index) => (
               <CartIconProduct
-                key={`productCard${product.id}`}
+                key={`productCard${product.id}${index}`}
                 product={product}
                 index={index}
                 cartDispatch={cartDispatch}
@@ -51,7 +52,6 @@ const CartIcon = () => {
             ))}
 
             <p className="p-4 text-center font-bold border-y border-gray-200">
-              {' '}
               SubTotal : R${calculateSubtotal()}
             </p>
 
@@ -67,7 +67,7 @@ const CartIcon = () => {
             </div>
           </div>
         ) : (
-          <p className='p-4'>Nenhum Produto no Carrinho.</p>
+          <p className="p-4">Nenhum Produto no Carrinho.</p>
         )}
       </div>
     </div>

@@ -2,42 +2,36 @@
 
 import { CartContext } from '@/contexts/CartProvider';
 import { addProductToCart } from '@/contexts/CartProvider/actions';
-import { FullProductInterface } from '@/types';
-import { ReactNode, useContext } from 'react';
+
+import { useContext, useState } from 'react';
 
 type Props = {
   text: string;
   type?: 'button' | 'submit';
   className?: string;
-  product: FullProductInterface;
+  productId: string;
 };
 
-const BuyButton = ({
-  text,
-  type = 'button',
-  className,
-  product,
-}: Props) => {
+const BuyButton = ({ text, type = 'button', className, productId }: Props) => {
+  const [mesage, setMesage] = useState('');
 
   const cartContext = useContext(CartContext);
-
-  const {cartDispatch} = cartContext;
-
-  console.log("cart Context",cartContext)
+  const { cartDispatch, cartState } = cartContext;
 
   const handleCLick = () => {
-    addProductToCart(product , 1, cartDispatch);
+    const response = addProductToCart(productId, 1, cartDispatch);
   };
 
   return (
     <button
       onClick={handleCLick}
       type={type}
-      className={` w-fit text-sm font-normal  leading-relaxed tracking-wide px-8 py-4 transition-all ${
+      className={` w-fit text-sm font-normal leading-relaxed tracking-wide px-8 py-4 transition-all ${
         className ? className : 'text-white bg-primary'
       }`}
     >
       {text}
+      {mesage}
     </button>
   );
 };

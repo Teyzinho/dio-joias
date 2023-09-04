@@ -35,7 +35,7 @@ const ProductCard = ({ product }: Props) => {
         </div>
 
         <BuyButton
-          product={product}
+          productId={product.id}
           className="bg-transparent text-primary border border-primary hover:bg-primary hover:text-white"
           text={'COMPRAR'}
         />

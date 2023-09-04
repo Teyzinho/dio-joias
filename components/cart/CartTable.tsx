@@ -1,16 +1,16 @@
 import { FullProductInterface } from '@/types';
 
-import ProductItem from './ProductItem';
+import CartTr from './CardTr';
 
 type Props = {
   products: FullProductInterface[];
 };
 
-const CartProducts = ({ products }: Props) => {
+const CartTable = ({ products }: Props) => {
   return (
-    <table className="w-full border-collapse  text-left lg:table">
-      <thead>
-        <tr className="bg-white h-14">
+    <table className="w-full  text-left">
+      <thead className='hidden lg:table-header-group'>
+        <tr className="bg-white  h-14">
           {/* Remove Product*/}
           <th></th>
           {/* Thumb*/}
@@ -25,13 +25,13 @@ const CartProducts = ({ products }: Props) => {
           <th>Subtotal</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         {products.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <CartTr key={product.id} product={product} />
         ))}
       </tbody>
     </table>
   );
 };
 
-export default CartProducts;
+export default CartTable;
