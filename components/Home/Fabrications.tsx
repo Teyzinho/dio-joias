@@ -1,21 +1,22 @@
 "use client"
 
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 
 import Container from '../ui/Container';
 import Products from '../product/Products';
 import Link from 'next/link';
-import { FullProductInterface } from '@/types';
 import { HomeContext } from '@/contexts/HomeProvider';
 
 const Fabrications = () => {
   const { homeData } = useContext(HomeContext);
 
-  const { products } = homeData
+  const { products , isLoading} = homeData;
 
-
-
+  if(!products || isLoading) {
+    <Container className='pb-16'>
+      Loading
+    </Container>
+  }
 
   return (
     <Container className='pb-16'>
