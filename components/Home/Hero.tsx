@@ -1,19 +1,26 @@
 'use client';
+import { useContext } from 'react';
 
-import { BannerInterface } from '@/types';
 import Image from 'next/image';
 import PrimaryButton from '../ui/PrimaryButton';
+import { HomeContext } from '@/contexts/HomeProvider';
 
-type Props = {
-  banner: BannerInterface;
-};
+const Hero = () => {
+  const { homeData } = useContext(HomeContext);
+  const { banner, isLoading } = homeData;
 
-const Hero = ({ banner }: Props) => {
+  console.log('homedata', homeData.banner);
+
+  if (isLoading || !banner) {
+    return (
+      <section className="relative h-[70vh] lg:h-screen w-full">
+        <p>Is Loading</p>
+      </section>
+    );
+  }
 
   return (
     <section className="relative h-[70vh] lg:h-screen w-full">
-      {/* <video autoPlay muted loop src={banner.file_url} /> */}
-
       <video
         autoPlay
         muted
@@ -54,8 +61,7 @@ const Hero = ({ banner }: Props) => {
         </div>
       </div>
 
-      <div className='absolute bottom-0 h-0 w-0 border-[0px,113.5px,150px,113.5px] border-black' />
-
+      <div className="absolute bottom-0 h-0 w-0 border-[0px,113.5px,150px,113.5px] border-black" />
     </section>
   );
 };

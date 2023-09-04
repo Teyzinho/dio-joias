@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FullProductInterface, PaginationInterface } from '@/types';
 import SecondaryProductCard from '../product/SecondaryProductCard';
+import PaginationCalc from './PaginationCalc';
 
 const ProductsByCategories = () => {
   const [products, setProducts] = useState<null | FullProductInterface[]>(null);
@@ -30,25 +31,12 @@ const ProductsByCategories = () => {
     return <div>Loading</div>;
   }
 
-  // Calculo de produtos
-  const startProduct = (pagination.page - 1) * pagination.perPage + 1;
-  const endProduct =
-    pagination.page === pagination.lastPage
-      ? pagination.total
-      : pagination.page * pagination.perPage;
-
-  const range = `${startProduct}-${endProduct}`;
-
   return (
     <section className="w-full lg:w-[78%] lg:pl-[60px] ">
       <h1 className="text-3xl text-primary">Produtos</h1>
 
       <div className="w-full flex flex-wrap justify-between items-center">
-        {pagination && (
-          <p className=" font-normal">
-            Exibindo {range} de {pagination?.total} resultados
-          </p>
-        )}
+        {pagination && <PaginationCalc pagination={pagination} />}
 
         <select className="px-1 py-2.5 border border-gray-200 font-light focus:outline-none">
           <option>Ordernar Por Popularidade</option>

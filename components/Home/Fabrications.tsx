@@ -1,30 +1,21 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Container from '../ui/Container';
 import Products from '../product/Products';
 import Link from 'next/link';
 import { FullProductInterface } from '@/types';
+import { HomeContext } from '@/contexts/HomeProvider';
 
 const Fabrications = () => {
+  const { homeData } = useContext(HomeContext);
 
-  const [products, setProducts] = useState<null | FullProductInterface[]>(null);
+  const { products } = homeData
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          "https://job.risestudio.com.br/pages/home?featured=true"
-        );
-        setProducts(response.data.data.featured);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPosts();
-  }, [])
+
+
 
   return (
     <Container className='pb-16'>

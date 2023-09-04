@@ -1,6 +1,5 @@
 import { FullProductInterface } from '@/types';
 import Image from 'next/image';
-import PrimaryButton from '../ui/PrimaryButton';
 import Link from 'next/link';
 import BuyButton from '../ui/BuyButton';
 
@@ -11,16 +10,18 @@ type Props = {
 const ProductCard = ({ product }: Props) => {
   return (
     <div className="w-full relative group shadow-md hover:shadow-2xl bg-white transition-all">
-      <div className="w-full min-h-[300px] relative overflow-hidden">
-        <Link href={`/produto/${product.slug}`}>
+      <Link href={`/produto/${product.slug}`}>
+        <div className="w-full min-h-[300px] relative overflow-hidden">
           <Image
             fill
             src={product.thumb.file_url}
             alt={product.title}
+            quality={50}
             className="object-cover group-hover:scale-125 transition-all"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className="px-6 py-7 flex justify-between flex-col h-[225px] ">
         <div className="flex flex-col gap-5">

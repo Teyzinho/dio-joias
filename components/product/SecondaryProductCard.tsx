@@ -10,19 +10,16 @@ type Props = {
 const SecondaryProductCard = ({ product }: Props) => {
   return (
     <div className="w-full max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition-all">
-      <div className="w-full min-h-[300px] relative overflow-hidden">
-        <Link href={`/produto/${product.slug}`}>
+      <Link href={`/produto/${product.slug}`}>
+        <div className="w-full min-h-[300px] relative overflow-hidden">
           <Image
             fill
             src={product.thumb.file_url}
             alt={product.title}
             className="object-cover"
           />
-          {/* {product.condition === 'new' && (
-            <div className="absolute top-0 left-0 bg-secondary text-white px-3 py-2">Novidade</div>
-          )} */}
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className="px-6 py-7 flex flex-col h-[225px] gap-4">
         <Link href={`/produto/${product.slug}`}>
