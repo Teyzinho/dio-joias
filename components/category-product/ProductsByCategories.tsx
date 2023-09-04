@@ -1,40 +1,22 @@
 'use client';
 
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { FullProductInterface, PaginationInterface } from '@/types';
+import { useContext} from 'react';
 import SecondaryProductCard from '../product/SecondaryProductCard';
 import PaginationCalc from './PaginationCalc';
+import { ProductsContext } from '@/contexts/ProductsProvider';
 
 const ProductsByCategories = () => {
-  const [products, setProducts] = useState<null | FullProductInterface[]>(null);
-  const [pagination, setPagination] = useState<null | PaginationInterface>(
-    null,
-  );
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          'https://job.risestudio.com.br/stocks',
-        );
-        setProducts(response.data.data);
-        setPagination(response.data.pagination);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchProducts();
-  }, []);
+  const {productsData} = useContext(ProductsContext)
+  const {pagination , products , isLoading} = productsData;
 
-  if (!products && !pagination) {
+  if (isLoading && products) {
     return <div>Loading</div>;
   }
 
   return (
     <section className="w-full lg:w-[78%] lg:pl-[60px] ">
       <h1 className="text-3xl text-primary">Produtos</h1>
-
       <div className="w-full flex flex-wrap justify-between items-center">
         {pagination && <PaginationCalc pagination={pagination} />}
 
