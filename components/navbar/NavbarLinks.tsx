@@ -1,30 +1,13 @@
 'use client';
 
-import { CategoriesInterface } from '@/types';
-
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 import LinkUnderline from '../ui/LinkUnderline';
+import { CategoryContext } from '@/contexts/CategoryProvider';
 
 const NavbarLinks = () => {
-  const [categories, setCategories] = useState<null | CategoriesInterface[]>(
-    null,
-  );
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          'https://job.risestudio.com.br/categories',
-        );
-        setCategories(response.data.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPosts();
-  }, []);
+  const { categories: categoriesData } = useContext(CategoryContext);
+  const { categories } = categoriesData;
 
   return (
     <div className="m-auto w-full max-w-[1240px] justify-center items-center gap-12 h-[90px] hidden lg:flex z-50">
