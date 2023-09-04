@@ -18,7 +18,7 @@ const Product = ({ params }: Props) => {
 
       <main className={`${roboto.className}`}>
         <FullProduct slug={params.slug} />
-        <RecomendedProduct slug={params.slug} />
+        <RecomendedProduct />
       </main>
     </>
   );

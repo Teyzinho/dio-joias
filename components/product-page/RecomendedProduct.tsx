@@ -1,32 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useContext } from 'react';
 
 import Container from '../ui/Container';
-import { FullProductInterface } from '@/types';
+import { ProductPageContext } from '@/contexts/ProductPage';
 import SecondaryProductCard from '../product/SecondaryProductCard';
+import { Recomended } from '@/types';
 
-type Props = {
-  slug: string;
-};
+const RecomendedProduct = () => {
+  const { product: productData } = useContext(ProductPageContext);
+  const { product, isLoading } = productData;
+  const products: Recomended[] = product?.recomended ?? [];
 
-const RecomendedProduct = ({ slug }: Props) => {
-  const [products, setProducts] = useState<null | FullProductInterface[]>(null);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          `https://job.risestudio.com.br/stocks/${slug}`,
-        );
-        setProducts(response.data.data.recomended);
-
-      } catch (error) {}
-    };
-
-    fetchPosts();
-  }, [slug]);
+  if (isLoading) {
+    return '';
+  }
 
   return (
     <Container className="pt-8 pb-20">
@@ -34,7 +22,9 @@ const RecomendedProduct = ({ slug }: Props) => {
 
       {/* Produtos */}
       <div className="grid  sm:grid-cols-3 gap-5 pt-2">
-        {products?.length === 0 && <p className='text-gray-500'>Não há produtos Relacionados</p>}
+        {products?.length === 0 && (
+          <p className="text-gray-500">Não há produtos Relacionados</p>
+        )}
         {products?.map((product) => (
           <SecondaryProductCard key={product.id} product={product} />
         ))}

@@ -1,10 +1,10 @@
-import { FullProductInterface } from '@/types';
+import { FullProductInterface, Recomended } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import BuyButton from '../ui/BuyButton';
 
 type Props = {
-  product: FullProductInterface;
+  product: FullProductInterface | Recomended;
 };
 
 const SecondaryProductCard = ({ product }: Props) => {

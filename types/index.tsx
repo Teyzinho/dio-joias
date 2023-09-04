@@ -48,12 +48,12 @@ export interface ProductCardInterface {
 }
 
 export interface Recomended extends ProductCardInterface {
-  attributes: Record<string, unknown>; // Você pode especificar um tipo mais específico aqui se necessário
-  amount: number;
-  orderable: boolean;
-  images: Image[];
-  metadata: Metadata;
-  desc: string;
+  attributes?: Record<string, unknown>; // Você pode especificar um tipo mais específico aqui se necessário
+  amount?: number;
+  orderable?: boolean;
+  images?: Image[];
+  metadata?: Metadata;
+  desc?: string;
 }
 
 export interface FullProductInterface extends ProductCardInterface {
@@ -62,7 +62,7 @@ export interface FullProductInterface extends ProductCardInterface {
   images: Image[];
   metadata: Metadata;
   desc: string;
-  recomended?: Recomended;
+  recomended?: Recomended[];
   card?: null;
   categories?: [];
 }
