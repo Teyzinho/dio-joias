@@ -37,7 +37,7 @@ const FullProduct = ({ slug }: Props) => {
     <Container className="pt-20 px-4">
       <div className="flex flex-col lg:flex-row">
         {/* Imagem */}
-        <div>
+        <div className='lg:w-1/2'>
           <ProductImage url={product?.thumb.file_url} />
           {product.images.length > 1 && (
             <ImagesSelection images={product.images} />
@@ -45,7 +45,7 @@ const FullProduct = ({ slug }: Props) => {
         </div>
 
         {/* Protudo */}
-        <div className="flex-1 pt-8 lg:pt-0 lg:px-12 flex flex-col gap-y-5">
+        <div className="lg:w-1/2 flex-1 pt-8 lg:pt-0 lg:px-12 flex flex-col gap-y-5">
           {/* Descrição */}
           <h1 className="text-neutral-700 text-3xl">{product?.title}</h1>
 

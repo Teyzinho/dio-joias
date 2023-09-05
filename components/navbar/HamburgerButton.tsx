@@ -20,7 +20,7 @@ const HamburgerButton = () => {
         onClick={handleChange}
       >
         <Image
-          src={`${isOpen ? 'close.svg' : 'hamburger.svg'}`}
+          src={`${isOpen ? '/close.svg' : '/hamburger.svg'}`}
           width={15}
           height={15}
           alt="hamburguerbtn"

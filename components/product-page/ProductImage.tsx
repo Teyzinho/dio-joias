@@ -37,7 +37,7 @@ const ProductImage = ({ url }: { url: string }) => {
   };
 
   return (
-    <div className='relative h-fit'>
+    <div className='relative lg:min-h-[400px] h-fit'>
       <button className='p-2 bg-white rounded-full absolute top-4 right-4 z-10' type='button' onClick={handleOpenModal}>
         <SearchSvg width={15} height={15}/>
       </button>
