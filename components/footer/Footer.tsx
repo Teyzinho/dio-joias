@@ -14,7 +14,7 @@ const Footer = () => {
 
         {/* Logo e Sociais */}
         <div className="w-full flex flex-col items-center md:items-start md:w-fit md:py-0">
-          <div className="relative w-full h-auto md:w-[225px] md:h-[78px]">
+          <div className="relative flex justify-center w-full h-auto md:w-[225px] md:h-[78px]">
             <Image src={logo} className="object-cover w-auto h-auto" alt="logo" />
           </div>
           <Sociais />

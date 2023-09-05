@@ -42,7 +42,16 @@ export interface ProductCardInterface {
   condition: string;
   thumb: Thumb;
   item: Item;
-  variations: [];
+  variations: [
+    {
+      vId: string;
+      key: string;
+      grid: {
+        gId: string;
+        key: string;
+      };
+    },
+  ];
   brand: string;
   short_desc: string;
 }
@@ -75,6 +84,6 @@ export interface PaginationInterface {
 }
 
 export interface CategoriesInterface {
-  id: string,
-  name: string
+  id: string;
+  name: string;
 }

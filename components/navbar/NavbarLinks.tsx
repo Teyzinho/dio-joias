@@ -16,8 +16,8 @@ const NavbarLinks = () => {
       <Link href="/">Seja um Representante</Link>
 
       <div className="group">
-        <Link href="/produtos">
-          Produtos <span className=" after:content-['\21E9'] font"></span>
+        <Link href="/produtos" className='flex items-center gap-2'>
+          Produtos <span className="border-x-4 border-x-transparent border-t-[6px] border-b-black"></span>
         </Link>
 
         <div className="invisible group-hover:visible translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 flex absolute bg-white flex-col p-6 gap-4 transition duration-500 delay-300">

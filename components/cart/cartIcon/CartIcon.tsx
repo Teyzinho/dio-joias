@@ -39,7 +39,9 @@ const CartIcon = () => {
         </div>
       </Link>
       {/* Hover */}
-      <div className="hidden group-hover:flex absolute -right-1 bg-white text-black text-xs w-72 border-gray-300 border-2 z-50">
+
+      <div className="hidden group-hover:flex absolute -right-1 bg-white text-black text-xs w-72 border-gray-300 border-2 z-50 teste mt-2">
+        <span className='seta'/>
         {products && products.length > 0 ? (
           <div className="w-full p-4 flex flex-col gap-y-2">
             {products.map((product, index) => (
@@ -70,6 +72,7 @@ const CartIcon = () => {
           <p className="p-4">Nenhum Produto no Carrinho.</p>
         )}
       </div>
+
     </div>
   );
 };

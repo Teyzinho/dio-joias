@@ -25,3 +25,28 @@
 .buy_button{
   @apply bg-transparent text-primary border border-primary hover:bg-primary hover:text-white w-fit flex items-center gap-1 disabled:cursor-not-allowed disabled:text-gray-200 disabled:bg-lightPrimary/20 text-sm font-normal leading-relaxed tracking-wide px-8 py-4 transition duration-500
 }
+
+.seta {
+  position: absolute;
+  bottom:100%;
+  right:10px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid rgb(209 213 219);
+  margin: 0 auto;
+}
+
+.seta::before {
+  content: '';
+  position: absolute;
+  left:-5px;
+  top:3px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #fff;
+  margin: 0 auto;
+}

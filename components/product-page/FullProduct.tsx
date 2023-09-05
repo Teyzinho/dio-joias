@@ -9,6 +9,7 @@ import { ProductPageContext, fetchProductPage } from '@/contexts/ProductPage';
 import ProductImage from './ProductImage';
 import GreenBuyButton from '../ui/GreenBuyButton';
 import ImagesSelection from './ImagesSelection';
+import { ProductsContext } from '@/contexts/ProductsProvider';
 
 type Props = {
   slug: string;
@@ -18,16 +19,41 @@ const FullProduct = ({ slug }: Props) => {
   const [quantity, setQuantity] = useState(1);
   const [cep, setCep] = useState('');
 
-  const { product: productdata, setProduct } = useContext(ProductPageContext);
-  const { isLoading, product } = productdata;
+  const { product: fullProductdata, setProduct } =
+    useContext(ProductPageContext);
+  const { isLoading, product } = fullProductdata;
+
 
   useEffect(() => {
     fetchProductPage(setProduct, slug);
   }, [setProduct, slug]);
 
+
+  // Teste
+  const { productsData } = useContext(ProductsContext);
+ // Final do teste
+
+
   if (!product || isLoading) {
     return <Container className="h-screen"> </Container>;
   }
+
+  //  // Teste
+  if (product.variations.length > 0) {
+    console.log('has variations');
+
+    productsData.products.forEach((product) => {
+      const hasVid = product?.variations[0]?.vId;
+
+      if (
+        hasVid &&
+        product?.variations[0]?.vId === product.variations[0]?.vId
+      ) {
+        console.log('same vId', product?.variations[0]?.vId);
+      }
+    });
+  }
+  // Final do teste
 
   return (
     <Container className="pt-20 px-4">
@@ -35,7 +61,9 @@ const FullProduct = ({ slug }: Props) => {
         {/* Imagem */}
         <div>
           <ProductImage url={product?.thumb.file_url} />
-          {product.images.length > 1 && <ImagesSelection images={product.images} /> }
+          {product.images.length > 1 && (
+            <ImagesSelection images={product.images} />
+          )}
         </div>
 
         {/* Protudo */}
