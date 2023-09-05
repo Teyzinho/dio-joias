@@ -28,7 +28,7 @@ const CartIcon = () => {
   };
 
   return (
-    <div className="group relative z-50">
+    <div className="group relative">
       {/* Numero de */}
       <Link href="/carrinho">
         <div className="relative border-white rounded-sm h-9 w-9 lg:w-7 lg:h-7 flex items-center justify-center border-2 group-hover:bg-white transition duration-500">
@@ -39,7 +39,7 @@ const CartIcon = () => {
         </div>
       </Link>
       {/* Hover */}
-      <div className="hidden group-hover:flex absolute -right-1 bg-white text-black text-xs w-72 border-gray-300 border-2">
+      <div className="hidden group-hover:flex absolute -right-1 bg-white text-black text-xs w-72 border-gray-300 border-2 z-50">
         {products && products.length > 0 ? (
           <div className="w-full p-4 flex flex-col gap-y-2">
             {products.map((product, index) => (

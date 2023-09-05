@@ -10,7 +10,7 @@ const NavbarLinks = () => {
   const { categories } = categoriesData;
 
   return (
-    <div className="m-auto w-full max-w-[1240px] justify-center items-center gap-12 h-[90px] hidden lg:flex z-50">
+    <div className="m-auto w-full max-w-[1240px] justify-center items-center gap-12 h-[90px] hidden lg:flex z-40">
       <Link href="/">Home</Link>
       <Link href="/">Sobre nós</Link>
       <Link href="/">Seja um Representante</Link>
