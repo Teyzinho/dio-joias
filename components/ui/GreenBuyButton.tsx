@@ -52,10 +52,11 @@ const GreenBuyButton = ({ text, type = 'button', productId }: Props) => {
           disabled:brightness-150
           disabled:cursor-not-allowed
           disabled:text-black
+          flex
         "
       >
         {status ? (
-          <LinkUnderline className="no-underline" href="/carrinho">
+          <LinkUnderline className="no-underline text-white" href="/carrinho">
             Ver Carrinho
           </LinkUnderline>
         ) : (

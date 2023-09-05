@@ -9,7 +9,7 @@ import { ProductPageContext, fetchProductPage } from '@/contexts/ProductPage';
 import ProductImage from './ProductImage';
 import GreenBuyButton from '../ui/GreenBuyButton';
 import ImagesSelection from './ImagesSelection';
-import { ProductsContext } from '@/contexts/ProductsProvider';
+import Variants from './Variants';
 
 type Props = {
   slug: string;
@@ -23,37 +23,15 @@ const FullProduct = ({ slug }: Props) => {
     useContext(ProductPageContext);
   const { isLoading, product } = fullProductdata;
 
-
   useEffect(() => {
     fetchProductPage(setProduct, slug);
   }, [setProduct, slug]);
-
-
-  // Teste
-  const { productsData } = useContext(ProductsContext);
- // Final do teste
-
 
   if (!product || isLoading) {
     return <Container className="h-screen"> </Container>;
   }
 
-  //  // Teste
-  if (product.variations.length > 0) {
-    console.log('has variations');
-
-    productsData.products.forEach((product) => {
-      const hasVid = product?.variations[0]?.vId;
-
-      if (
-        hasVid &&
-        product?.variations[0]?.vId === product.variations[0]?.vId
-      ) {
-        console.log('same vId', product?.variations[0]?.vId);
-      }
-    });
-  }
-  // Final do teste
+  const hasVariants = product.variations.length >= 1
 
   return (
     <Container className="pt-20 px-4">
@@ -83,10 +61,12 @@ const FullProduct = ({ slug }: Props) => {
             <span className="text-zinc-500 text-sm">s/juros</span>
           </p>
 
-          <p className="text-neutral-600 h-20">{product?.short_desc}</p>
+          <p className="text-neutral-600 min-h-[30px]">{product?.short_desc}</p>
+
+          {/* Variants */}
+          {hasVariants && <Variants product={product} />}
 
           {/* Detalhes Compra */}
-
           <p className="flex gap-2">
             <span className="font-bold">Disponibilidade</span>
             <span
@@ -104,6 +84,7 @@ const FullProduct = ({ slug }: Props) => {
               type="number"
               value={quantity}
               min="1"
+              max={product.amount}
               className="py-1.5 text-center w-14 text-stone-500"
               onChange={(e) => setQuantity(Number(e.target.value))}
             />
