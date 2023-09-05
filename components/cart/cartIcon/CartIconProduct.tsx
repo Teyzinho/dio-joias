@@ -22,10 +22,10 @@ const CartIconProduct = ({ product, index , cartDispatch }: Props) => {
     >
       <Image
         src={product.thumb.file_url}
-        width={30}
-        height={30}
+        width={100}
+        height={100}
         alt="productImage"
-        className="object-cover h-min"
+        className="object-cover h-[53px] w-[53px]"
       />
 
       <div className="flex flex-col w-36">

@@ -34,6 +34,8 @@ const ProductsByCategories = () => {
           <SecondaryProductCard key={product.id} product={product} />
         ))}
       </div>
+
+
     </section>
   );
 };

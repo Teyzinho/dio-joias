@@ -11,14 +11,13 @@ type ContextType = {
   cartState: DataInterface;
   cartDispatch: React.Dispatch<any>;
 };
+
 export const CartContext = createContext<ContextType>({
   cartState: data,
   cartDispatch: () => {},
 });
-// export const CartContext = createContext(data);
 
 export const CartProvider = ({ children }: Props) => {
-
   const [cartState, cartDispatch] = useReducer(reducer, data);
 
   return (

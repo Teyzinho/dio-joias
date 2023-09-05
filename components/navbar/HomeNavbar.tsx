@@ -7,6 +7,7 @@ import Carrinho from '../cart/cartIcon/CartIcon';
 import HamburgerButton from './HamburgerButton';
 import SearchButton from '../ui/SearchButton';
 import NavbarLinks from './NavbarLinks';
+import Sociais from './Sociais';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -15,35 +16,7 @@ const HomeNavbar = () => {
     <header className={`absolute flex flex-col justify-center w-full text-white z-20 px-7 ${montserrat.className}`}>
       <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-[1fr,auto,1fr] justify-between items-center gap-5 py-3">
         {/* DeskTop */}
-        <div className="hidden gap-4 sm:flex">
-          <Link href="#">
-            <Image
-              src="/facebook.svg"
-              width={24}
-              height={24}
-              alt="facebook"
-              className="object-contain"
-            />
-          </Link>
-          <Link href="#">
-            <Image
-              src="/instagram.svg"
-              width={24}
-              height={24}
-              alt="instagram"
-              className="object-contain"
-            />
-          </Link>
-          <Link href="#">
-            <Image
-              src="/pinterest.svg"
-              width={24}
-              height={24}
-              alt="pinterest"
-              className="object-contain"
-            />
-          </Link>
-        </div>
+        <Sociais />
 
         {/* Mobile Logo */}
         <div className="block sm:hidden">

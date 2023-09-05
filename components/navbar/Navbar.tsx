@@ -7,6 +7,7 @@ import CartIcon from '../cart/cartIcon/CartIcon';
 import HamburgerButton from './HamburgerButton';
 import SearchButton from '../ui/SearchButton';
 import NavbarLinks from './NavbarLinks';
+import Sociais from './Sociais';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -17,35 +18,7 @@ const Navbar = () => {
     >
       <div className="m-auto w-full max-w-[1240px] grid grid-cols-2 sm:grid-cols-2 justify-between items-center gap-5 py-3">
         {/* DeskTop */}
-        <div className="hidden gap-4 sm:flex">
-          <Link href="#">
-            <Image
-              src="/facebook.svg"
-              width={24}
-              height={24}
-              alt="facebook"
-              className="object-contain"
-            />
-          </Link>
-          <Link href="#">
-            <Image
-              src="/instagram.svg"
-              width={24}
-              height={24}
-              alt="instagram"
-              className="object-contain"
-            />
-          </Link>
-          <Link href="#">
-            <Image
-              src="/pinterest.svg"
-              width={24}
-              height={24}
-              alt="pinterest"
-              className="object-contain"
-            />
-          </Link>
-        </div>
+        <Sociais />
 
         {/* Mobile Logo */}
         <div className="block sm:hidden">
@@ -58,6 +31,7 @@ const Navbar = () => {
           />
         </div>
 
+        {/* Right Buttons */}
         <div className="flex justify-end gap-4">
           <div className="hidden sm:flex gap-4">
             <Link href="#">

@@ -10,9 +10,9 @@ const CartTable = ({ products }: Props) => {
   return (
     <table className="w-full  text-left">
       <thead className='hidden lg:table-header-group'>
-        <tr className="bg-white  h-14">
+        <tr className="bg-white h-14">
           {/* Remove Product*/}
-          <th></th>
+          <th className='lg:w-28'></th>
           {/* Thumb*/}
           <th></th>
           {/* Name  */}

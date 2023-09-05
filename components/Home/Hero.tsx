@@ -1,4 +1,5 @@
 'use client';
+
 import { useContext } from 'react';
 
 import Image from 'next/image';
@@ -36,7 +37,7 @@ const Hero = () => {
         absolute
         -z-10
         "
-      ></div>
+      />
 
       <div className="text-white flex items-center justify-center w-full h-full px-4 ">
         <div className="lg:pt-32 flex flex-col lg:flex-row items-center gap-2 lg:gap-12 ">

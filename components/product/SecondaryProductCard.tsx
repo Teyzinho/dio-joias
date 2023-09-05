@@ -1,7 +1,6 @@
 import { FullProductInterface, Recomended } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import BuyButton from '../ui/BuyButton';
 import GreenBuyButton from '../ui/GreenBuyButton';
 
 type Props = {

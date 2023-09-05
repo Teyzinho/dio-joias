@@ -1,14 +1,13 @@
 'use client';
 
 import { useEffect, useContext } from 'react';
+import Link from 'next/link';
 
-import Navbar from '@/components/navbar/Navbar';
 import Container from '@/components/ui/Container';
 import { FullProductInterface } from '@/types';
 import { CartContext } from '@/contexts/CartProvider';
 import { getProductsToCard } from '@/contexts/CartProvider/actions';
 import Cart from '@/components/cart/Cart';
-import Link from 'next/link';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 
 const Carrinho = () => {
