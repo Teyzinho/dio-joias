@@ -8,6 +8,7 @@ import ProductTab from './ProductTab';
 import { ProductPageContext, fetchProductPage } from '@/contexts/ProductPage';
 import ProductImage from './ProductImage';
 import GreenBuyButton from '../ui/GreenBuyButton';
+import ImagesSelection from './ImagesSelection';
 
 type Props = {
   slug: string;
@@ -32,7 +33,10 @@ const FullProduct = ({ slug }: Props) => {
     <Container className="pt-20">
       <div className="flex">
         {/* Imagem */}
-        <ProductImage url={product?.thumb.file_url}/>
+        <div>
+          <ProductImage url={product?.thumb.file_url} />
+          {product.images.length > 1 && <ImagesSelection images={product.images} /> }
+        </div>
 
         {/* Protudo */}
         <div className="flex-1 px-12 flex flex-col gap-y-5">
@@ -95,7 +99,6 @@ const FullProduct = ({ slug }: Props) => {
               <SecondaryButton>Ok</SecondaryButton>
             </div>
           </div>
-
         </div>
       </div>
 
