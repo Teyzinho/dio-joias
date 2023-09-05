@@ -13,7 +13,7 @@ const Hero = () => {
   if (isLoading || !banner) {
     return (
       <section className="relative h-[70vh] lg:h-[110vh] w-full">
-        <p>Is Loading</p>
+
       </section>
     );
   }

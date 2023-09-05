@@ -19,7 +19,8 @@ const Categories = () => {
       {/* Pesquisa */}
       <div>
         <TitleUnderline>Pesquisar</TitleUnderline>
-        <form className="flex gap-2 border-b border-gray-200 pt-2 pb-5 w-full">
+
+        <form className="flex gap-2 border-b border-gray-200 pt-2 pb-5 w-full relative">
           <Input type="text" className="w-full" />
           <button
             className="w-12 h-10 flex items-center justify-center border-primary border hover:bg-primary text-primary hover:text-white transition duration-500"

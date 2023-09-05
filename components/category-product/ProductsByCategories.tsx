@@ -11,16 +11,16 @@ const ProductsByCategories = () => {
   const {pagination , products , isLoading} = productsData;
 
   if (isLoading && products) {
-    return <div>Loading</div>;
+    return
   }
 
   return (
     <section className="w-full lg:w-[78%] lg:pl-[60px] ">
       <h1 className="text-3xl text-primary">Produtos</h1>
-      <div className="w-full flex flex-wrap justify-between items-center">
+      <div className="w-full pt-10 sm:pt-0 gap-y-4 flex flex-wrap justify-between items-center">
         {pagination && <PaginationCalc pagination={pagination} />}
 
-        <select className="px-1 py-2.5 border border-gray-200 font-light focus:outline-none">
+        <select className="px-1 lg:text-base text-xs py-2.5 border border-gray-200 font-light focus:outline-none">
           <option>Ordernar Por Popularidade</option>
           <option>Ordernar Por Mais recente</option>
           <option>Ordernar Por preço: Maior para o Menor</option>

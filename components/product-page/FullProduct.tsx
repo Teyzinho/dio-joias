@@ -26,12 +26,12 @@ const FullProduct = ({ slug }: Props) => {
   }, [setProduct, slug]);
 
   if (!product || isLoading) {
-    return <div>Loading</div>;
+    return <Container className="h-screen"> </Container>;
   }
 
   return (
-    <Container className="pt-20">
-      <div className="flex">
+    <Container className="pt-20 px-4">
+      <div className="flex flex-col lg:flex-row">
         {/* Imagem */}
         <div>
           <ProductImage url={product?.thumb.file_url} />
@@ -39,7 +39,7 @@ const FullProduct = ({ slug }: Props) => {
         </div>
 
         {/* Protudo */}
-        <div className="flex-1 px-12 flex flex-col gap-y-5">
+        <div className="flex-1 pt-8 lg:pt-0 lg:px-12 flex flex-col gap-y-5">
           {/* Descrição */}
           <h1 className="text-neutral-700 text-3xl">{product?.title}</h1>
 

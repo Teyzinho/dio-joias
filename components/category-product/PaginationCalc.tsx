@@ -15,7 +15,7 @@ const PaginationCalc = ({
 
   return (
     <div>
-      <p className=" font-normal">
+      <p className="font-normal">
         Exibindo {range} de {pagination?.total} resultados
       </p>
     </div>

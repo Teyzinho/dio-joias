@@ -9,7 +9,7 @@ type Props = {
 
 const SecondaryProductCard = ({ product }: Props) => {
   return (
-    <div className="w-full max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition duration-500">
+    <div className="w-full sm:max-w-[285px] relative group shadow-md hover:shadow-2xl bg-white transition duration-500">
       <Link href={`/produto/${product.slug}`}>
         <div className="w-full min-h-[300px] relative overflow-hidden">
           <Image

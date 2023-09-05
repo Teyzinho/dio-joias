@@ -13,11 +13,11 @@ const RecomendedProduct = () => {
   const products: Recomended[] = product?.recomended ?? [];
 
   if (isLoading) {
-    return '';
+    return <Container> </Container>;
   }
 
   return (
-    <Container className="pt-8 pb-20">
+    <Container className="pt-8 px-4 pb-20">
       <h2 className="text-neutral-700 text-xl">Produtos relacionados</h2>
 
       {/* Produtos */}

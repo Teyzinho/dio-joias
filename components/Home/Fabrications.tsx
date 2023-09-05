@@ -15,19 +15,19 @@ const Fabrications = () => {
 
   if(!products || isLoading) {
     <Container className='pb-16'>
-      Loading
+
     </Container>
   }
 
   return (
     <Container className='pb-16'>
-      <div className="py-[120px]">
+      <div className="py-[60px] sm:py-[120px]">
         <div className="p-6 border-l-primary border border-transparent ">
           <p className="text-zinc-400 text-sm sm:text-base font-bold leading-loose">
             VIVENCIE A EXPERIÊNCIA USANDO NOSSAS JOIAS EM PRATA
           </p>
           <h2 className="text-primary text-4xl sm:text-5xl font-extralight leading-10">
-            a arte que acompanha sua conquista
+            a arte que <span className='font-light'>acompanha sua conquista</span>
           </h2>
         </div>
       </div>

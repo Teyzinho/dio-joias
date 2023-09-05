@@ -18,7 +18,7 @@ export const navbarConstants: NavbarConstantsInterface[] = [
   },
   {
     title: 'Produtos',
-    href: '/',
+    href: '/produtos',
   },
   {
     title: 'Novidades',
@@ -30,7 +30,7 @@ export const navbarConstants: NavbarConstantsInterface[] = [
   },
   {
     title: 'Carrinho',
-    href: '/',
+    href: '/carrinho',
   },
   {
     title: 'Minha conta',
