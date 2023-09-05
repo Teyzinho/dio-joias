@@ -1,17 +1,16 @@
 'use client';
 
-import { useContext} from 'react';
+import { useContext } from 'react';
 import SecondaryProductCard from '../product/SecondaryProductCard';
 import PaginationCalc from './PaginationCalc';
 import { ProductsContext } from '@/contexts/ProductsProvider';
 
 const ProductsByCategories = () => {
+  const { productsData } = useContext(ProductsContext);
+  const { pagination, products, isLoading } = productsData;
 
-  const {productsData} = useContext(ProductsContext)
-  const {pagination , products , isLoading} = productsData;
-
-  if (isLoading && products) {
-    return
+  if (isLoading && productsData) {
+    return;
   }
 
   return (
@@ -26,6 +25,7 @@ const ProductsByCategories = () => {
           <option>Ordernar Por preço: Maior para o Menor</option>
           <option>Ordernar Por preço: Menor para o Maior</option>
         </select>
+
       </div>
 
       {/* Produtos */}
@@ -34,8 +34,6 @@ const ProductsByCategories = () => {
           <SecondaryProductCard key={product.id} product={product} />
         ))}
       </div>
-
-
     </section>
   );
 };

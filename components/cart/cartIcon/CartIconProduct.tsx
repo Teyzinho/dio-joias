@@ -29,7 +29,7 @@ const CartIconProduct = ({ product, index , cartDispatch }: Props) => {
       />
 
       <div className="flex flex-col w-36">
-        <LinkUnderline className="text-xs">{product.title}</LinkUnderline>
+        <LinkUnderline href={`/produto/${product.slug}`} className="text-xs">{product.title}</LinkUnderline>
         <span className="pt-2">R$ { product.value }</span>
       </div>
 

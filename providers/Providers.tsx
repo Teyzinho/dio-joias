@@ -3,6 +3,7 @@
 import { CartProvider } from '@/contexts/CartProvider';
 import { CategoryProvider } from '@/contexts/CategoryProvider';
 import { HomeProvider } from '@/contexts/HomeProvider';
+import { ModalProvider } from '@/contexts/ModalProvider';
 import { ProductPageProvider } from '@/contexts/ProductPage';
 import { ProductsProvider } from '@/contexts/ProductsProvider';
 
@@ -13,7 +14,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
         <CategoryProvider>
           <ProductsProvider>
             <ProductPageProvider>
-              <CartProvider>{children}</CartProvider>
+              <ModalProvider>
+                <CartProvider>{children}</CartProvider>
+              </ModalProvider>
             </ProductPageProvider>
           </ProductsProvider>
         </CategoryProvider>

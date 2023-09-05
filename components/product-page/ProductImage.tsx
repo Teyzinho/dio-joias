@@ -2,10 +2,18 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { SearchSvg } from '../tsx-svg';
+import { useModal } from '@/contexts/ModalProvider';
 
 const ProductImage = ({ url }: { url: string }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isZoomed, setIsZoomed] = useState(false);
+
+  const { openModal } = useModal();
+
+  const handleOpenModal = () => {
+    openModal(url)
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
@@ -29,12 +37,17 @@ const ProductImage = ({ url }: { url: string }) => {
   };
 
   return (
+    <div className='relative h-fit'>
+      <button className='p-2 bg-white rounded-full absolute top-4 right-4 z-10' type='button' onClick={handleOpenModal}>
+        <SearchSvg width={15} height={15}/>
+      </button>
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       className="relative h-fit overflow-hidden"
     >
+
       <div className="flex-1 relative w-full">
         <Image
           width={500}
@@ -60,6 +73,8 @@ const ProductImage = ({ url }: { url: string }) => {
         }}
       />
     </div>
+    </div>
+
   );
 };
 

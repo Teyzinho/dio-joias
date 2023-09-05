@@ -50,3 +50,15 @@
   border-bottom: 8px solid #fff;
   margin: 0 auto;
 }
+
+.modal{
+  @apply bg-black/50 fixed w-full h-screen z-50 flex items-center
+}
+
+.modal-button{
+  @apply absolute top-8 right-8 text-white w-8 h-8 flex items-center justify-center border-white border rounded-full
+}
+
+.modal-img{
+  @apply h-[90%] w-full flex justify-center
+}
